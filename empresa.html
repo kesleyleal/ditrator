@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-BR"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Ditrator - Empresa</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-<style type="text/tailwindcss">
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Ditrator - Empresa</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <style type="text/tailwindcss">
     body {
       font-family: 'Raleway', sans-serif;
       background-color: #f4f4f9;
@@ -15,10 +20,10 @@
       background-color: #1f2937;
     }
     .nav-link {
-      @apply text-white hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium;
+      @apply text-white hover:text-[#FF6759] px-3 py-2 rounded-md text-sm font-medium;
     }
     .nav-link-active {
-      @apply text-red-500;
+      @apply text-[#FF6759];
     }
     .page-title-section {
       background-color: #2c3e50;
@@ -34,7 +39,7 @@
       @apply px-6 py-3 rounded-md font-semibold shadow-md transition duration-300;
     }
     .btn-primary {
-      @apply bg-red-600 text-white hover:bg-red-700;
+      @apply bg-[#FF6759] text-white hover:bg-[#FF6759];
     }
     .btn-secondary {
       @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
@@ -51,145 +56,168 @@
     }
   </style>
 </head>
+
 <body>
-<header class="header-bg fixed top-0 left-0 right-0 z-50 shadow-md">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex items-center justify-between h-16">
-<div class="flex items-center">
-  <img alt="Ditrator Logo" class="h-12 w-auto mr-2"
-                        src="./img/logo_white1.png"/>
-<!-- <span class="text-white text-xl font-bold">DITRATOR</span>
+  <header class="header-bg fixed top-0 left-0 right-0 z-50 shadow-md">
+    <div class="container mx-auto px-4 sm:px-0 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <img alt="Ditrator Logo" class="h-12 w-auto mr-2" src="./img/logo_white1.png" />
+          <!-- <span class="text-white text-xl font-bold">DITRATOR</span>
 <span class="text-gray-400 text-xs ml-2 mt-2 block">Distribuidor de Peças e Serviços</span> -->
-</div>
-<nav class="hidden md:block">
-<div class="ml-10 flex items-baseline space-x-4">
-<a class="nav-link" href="./index.html">HOME</a>
-<a class="nav-link nav-link-active" href="#">EMPRESA</a>
-<a class="nav-link" href="#">SOBRE NÓS</a>
-<a class="nav-link" href="index.html#catalog">CATÁLOGO</a>
-<a class="nav-link" href="#">CONTATO</a>
-<a class="nav-link" href="#">CLIENTE</a>
-</div>
-</nav>
-<div class="md:hidden">
-<button class="text-white hover:text-red-500 focus:outline-none" id="mobile-menu-button">
-<span class="material-icons">menu</span>
-</button>
-</div>
-</div>
-</div>
-<div class="md:hidden hidden bg-gray-800" id="mobile-menu">
-<a class="block nav-link px-4 py-2" href="#">HOME</a>
-<a class="block nav-link nav-link-active px-4 py-2" href="#">EMPRESA</a>
-<a class="block nav-link px-4 py-2" href="#">SOBRE NÓS</a>
-<a class="block nav-link px-4 py-2" href="index.html#catalogo">CATÁLOGO</a>
-<a class="block nav-link px-4 py-2" href="#">CONTATO</a>
-<a class="block nav-link px-4 py-2" href="#">CLIENTE</a>
-</div>
-</header>
-<main class="pt-16">
-<section class="page-title-section">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
-<h1 class="text-4xl font-bold">Nossa Empresa</h1>
-<p class="text-lg text-gray-300 mt-2">Conheça mais sobre a Ditrator e nossas unidades.</p>
-</div>
-</section>
-<section class="py-12 bg-white">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<h2 class="section-title text-gray-800 text-center mb-8">Sobre a Ditrator</h2>
-<div class="max-w-3xl mx-auto text-gray-600 leading-relaxed text-justify">
-<p class="mb-4">
-            A Ditrator é uma empresa consolidada no mercado de distribuição de peças agrícolas e para motores diesel. Com anos de experiência, nos dedicamos a fornecer produtos de alta qualidade e serviços especializados para atender às necessidades dos nossos clientes em todo o país.
+        </div>
+        <nav class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-4">
+            <a class="nav-link" href="./index.html">HOME</a>
+            <a class="nav-link nav-link-active" href="#">EMPRESA</a>
+            <a class="nav-link" href="#">SOBRE NÓS</a>
+            <a class="nav-link" href="index.html#catalog">CATÁLOGO</a>
+            <a class="nav-link" href="#">CONTATO</a>
+            <a class="nav-link" href="#">CLIENTE</a>
+          </div>
+        </nav>
+        <div class="md:hidden">
+          <button class="text-white hover:text-[#FF6759] focus:outline-none" id="mobile-menu-button">
+            <span class="material-icons">menu</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="md:hidden hidden bg-gray-800" id="mobile-menu">
+      <a class="block nav-link px-4 py-2" href="#">HOME</a>
+      <a class="block nav-link nav-link-active px-4 py-2" href="#">EMPRESA</a>
+      <a class="block nav-link px-4 py-2" href="#">SOBRE NÓS</a>
+      <a class="block nav-link px-4 py-2" href="index.html#catalogo">CATÁLOGO</a>
+      <a class="block nav-link px-4 py-2" href="#">CONTATO</a>
+      <a class="block nav-link px-4 py-2" href="#">CLIENTE</a>
+    </div>
+  </header>
+  <main class="pt-16">
+    <section class="page-title-section">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+        <h1 class="text-4xl font-bold">Nossa Empresa</h1>
+        <p class="text-lg text-gray-300 mt-2">Conheça mais sobre a Ditrator e nossas unidades.</p>
+      </div>
+    </section>
+    <section class="py-12 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title text-gray-800 text-center mb-8">Sobre a Ditrator</h2>
+        <div class="max-w-3xl mx-auto text-gray-600 leading-relaxed text-justify">
+          <p class="mb-4">
+            A Ditrator é uma empresa consolidada no mercado de distribuição de peças agrícolas e para motores diesel.
+            Com anos de experiência, nos dedicamos a fornecer produtos de alta qualidade e serviços especializados para
+            atender às necessidades dos nossos clientes em todo o país.
           </p>
-<p class="mb-4">
-            Nossa missão é ser referência no setor, oferecendo um portfólio completo de peças das marcas mais renomadas, garantindo durabilidade e desempenho para os equipamentos de nossos parceiros. Investimos constantemente em inovação e na capacitação de nossa equipe para proporcionar o melhor atendimento e suporte técnico.
+          <p class="mb-4">
+            Nossa missão é ser referência no setor, oferecendo um portfólio completo de peças das marcas mais renomadas,
+            garantindo durabilidade e desempenho para os equipamentos de nossos parceiros. Investimos constantemente em
+            inovação e na capacitação de nossa equipe para proporcionar o melhor atendimento e suporte técnico.
           </p>
-<p>
-            Valorizamos a confiança e a parceria com nossos clientes, buscando sempre superar suas expectativas. A Ditrator está comprometida com o desenvolvimento do agronegócio e do setor de transportes, fornecendo soluções eficientes e contribuindo para o sucesso de seus negócios.
+          <p>
+            Valorizamos a confiança e a parceria com nossos clientes, buscando sempre superar suas expectativas. A
+            Ditrator está comprometida com o desenvolvimento do agronegócio e do setor de transportes, fornecendo
+            soluções eficientes e contribuindo para o sucesso de seus negócios.
           </p>
-</div>
-</div>
-</section>
-<section class="py-12 bg-gray-50">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<h2 class="section-title text-gray-800 text-center mb-10">Nossas Filiais</h2>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-<div class="card">
-<img alt="Fachada da filial de Cascavel" class="w-full h-56 object-cover" src="./img/fachada.jpg"/>
-<div class="p-6">
-<h3 class="text-xl font-semibold text-gray-800 mb-2">Pinhais - PR</h3>
-<p class="text-gray-600 text-sm mb-1"><span class="material-icons text-sm text-red-500 inline-block mr-1 align-middle">location_on</span>R. Wanda dos Santos Mallmann, 1547, Pinhais</p>
-<p class="text-gray-600 text-sm"><span class="material-icons text-sm text-red-500 inline-block mr-1 align-middle">phone</span>(41) 3306-6500</p>
-</div>
-</div>
-<div class="card">
-<img alt="Fachada da filial de Maringá" class="w-full h-56 object-cover" src="./img/estchap.jpg"/>
-<div class="p-6">
-<h3 class="text-xl font-semibold text-gray-800 mb-2">Cascavel - PR</h3>
-<p class="text-gray-600 text-sm mb-1"><span class="material-icons text-sm text-red-500 inline-block mr-1 align-middle">location_on</span>R. Gandhi, 335, Brazmadeira</p>
-<p class="text-gray-600 text-sm"><span class="material-icons text-sm text-red-500 inline-block mr-1 align-middle">phone</span>(45) 3097-9696</p>
-</div>
-</div>
-<div class="card">
-<img alt="Fachada da filial de Londrina" class="w-full h-56 object-cover" src="./img/pinhais.jpg"/>
-<div class="p-6">
-<h3 class="text-xl font-semibold text-gray-800 mb-2">Canoas - RS</h3>
-<p class="text-gray-600 text-sm mb-1"><span class="material-icons text-sm text-red-500 inline-block mr-1 align-middle">location_on</span>R. Ivanir Jose Pagliarini, 455, Niteroi</p>
-<p class="text-gray-600 text-sm"><span class="material-icons text-sm text-red-500 inline-block mr-1 align-middle">phone</span>(51) 3075-8401</p>
-</div>
-</div>
-<div class="card">
-<img alt="Fachada da filial de Curitiba" class="w-full h-56 object-cover" src="./img/fachada.jpg"/>
-<div class="p-6">
-<h3 class="text-xl font-semibold text-gray-800 mb-2">Chapecó - RS</h3>
-<p class="text-gray-600 text-sm mb-1"><span class="material-icons text-sm text-red-500 inline-block mr-1 align-middle">location_on</span>R. Herval do Oeste, 171E, Eldorado</p>
-<p class="text-gray-600 text-sm"><span class="material-icons text-sm text-red-500 inline-block mr-1 align-middle">phone</span>(49) 3025-9600</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-</main>
-<footer class="footer-bg py-12">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div>
-<div class="flex items-center mb-4">
-                          <img alt="Ditrator Logo Branco" class="h-13 w-auto mr-3"
-                            src="./img/logo.png" />
-<!-- <span class="text-white text-2xl font-bold">DITRATOR</span> -->
-</div>
-</div>
-<div class="text-sm">
-<h4 class="font-semibold text-white mb-3">DITRATOR</h4>
-<div class="icon-text-container mb-2">
-<span class="material-icons text-red-500">location_on</span>
-<p>Rua Visconde de Guarapuava, 2747 - Rubem Berta - PR</p>
-</div>
-<div class="icon-text-container mb-2">
-<span class="material-icons text-red-500">phone</span>
-<p>(45) 3227-2392 | (45) 99980-7392 | (45) 99132-1791</p>
-</div>
-<div class="icon-text-container mb-2">
-<span class="material-icons text-red-500">email</span>
-<p>contato@ditrator.com.br</p>
-</div>
-<div class="icon-text-container">
-<span class="material-icons text-red-500">schedule</span>
-<p>Segunda a Sexta das 08:00 até 18:00</p>
-</div>
-</div>
-<div>
-<h4 class="font-semibold text-white mb-3">ALGUMA DÚVIDA?</h4>
-<button class="btn btn-outline w-full border-gray-400 text-gray-400 hover:bg-red-600 hover:border-red-600 hover:text-white">ENTRE EM CONTATO</button>
-</div>
-</div>
-<div class="border-t border-gray-700 mt-8 pt-6 text-center text-xs text-gray-500">
-<p>© 2024 Ditrator. Todos os direitos reservados.</p>
-</div>
-</div>
-</footer>
-<script>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title text-gray-800 text-center mb-10">Nossas Filiais</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="card">
+            <img alt="Fachada da filial de Cascavel" class="w-full h-56 object-cover" src="./img/fachada.jpg" />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800 mb-2">Pinhais - PR</h3>
+              <p class="text-gray-600 text-sm mb-1"><span
+                  class="material-icons text-sm text-[#FF6759] inline-block mr-1 align-middle">location_on</span>R. Wanda
+                dos Santos Mallmann, 1547, Pinhais</p>
+              <p class="text-gray-600 text-sm"><span
+                  class="material-icons text-sm text-[#FF6759] inline-block mr-1 align-middle">phone</span>(41) 3306-6500
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <img alt="Fachada da filial de Maringá" class="w-full h-56 object-cover" src="./img/estchap.jpg" />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800 mb-2">Cascavel - PR</h3>
+              <p class="text-gray-600 text-sm mb-1"><span
+                  class="material-icons text-sm text-[#FF6759] inline-block mr-1 align-middle">location_on</span>R.
+                Gandhi, 335, Brazmadeira</p>
+              <p class="text-gray-600 text-sm"><span
+                  class="material-icons text-sm text-[#FF6759] inline-block mr-1 align-middle">phone</span>(45) 3097-9696
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <img alt="Fachada da filial de Londrina" class="w-full h-56 object-cover" src="./img/pinhais.jpg" />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800 mb-2">Canoas - RS</h3>
+              <p class="text-gray-600 text-sm mb-1"><span
+                  class="material-icons text-sm text-[#FF6759] inline-block mr-1 align-middle">location_on</span>R. Ivanir
+                Jose Pagliarini, 455, Niteroi</p>
+              <p class="text-gray-600 text-sm"><span
+                  class="material-icons text-sm text-[#FF6759] inline-block mr-1 align-middle">phone</span>(51) 3075-8401
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <img alt="Fachada da filial de Curitiba" class="w-full h-56 object-cover" src="./img/fachada.jpg" />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800 mb-2">Chapecó - RS</h3>
+              <p class="text-gray-600 text-sm mb-1"><span
+                  class="material-icons text-sm text-[#FF6759] inline-block mr-1 align-middle">location_on</span>R. Herval
+                do Oeste, 171E, Eldorado</p>
+              <p class="text-gray-600 text-sm"><span
+                  class="material-icons text-sm text-[#FF6759] inline-block mr-1 align-middle">phone</span>(49) 3025-9600
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer-bg py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <div class="flex items-center mt-9 mb-4">
+            <img alt="Ditrator Logo Branco" class="h-13 w-auto mr-3" src="./img/logo_white.png" />
+            <!-- <span class="text-white text-2xl font-bold">DITRATOR</span> -->
+          </div>
+        </div>
+        <div class="text-sm">
+          <h4 class="font-semibold text-white mb-3">SOBRE</h4>
+          <div class="icon-text-container mb-2">
+            <span class="material-icons text-[#FF6759]">location_on</span>
+            <p class="text-s">R. Wanda dos santos Mallmann, 1547 - Pinhais/PR</p>
+          </div>
+          <div class="icon-text-container mb-2">
+            <span class="material-icons text-[#FF6759]">phone</span>
+            <p>(41) 3306-6500</p>
+          </div>
+          <div class="icon-text-container mb-2">
+            <span class="material-icons text-[#FF6759]">email</span>
+            <p>contato@ditrator.com.br</p>
+          </div>
+          <div class="icon-text-container">
+            <span class="material-icons text-[#FF6759]">schedule</span>
+            <p>Segunda a Sexta das 08:00 ás 18:00</p>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-3">ALGUMA DÚVIDA?</h4>
+          <button
+            class="btn btn-outline w-full border-gray-400 text-gray-400 hover:bg-[#FF6759] hover:border-[#FF6759] hover:text-white">ENTRE
+            EM CONTATO</button>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-6 text-center text-xs text-gray-500">
+        <p>© 2025 Ditrator. 0861143600100 Todos os direitos reservados. </p>
+      </div>
+    </div>
+  </footer>
+  <script>
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     mobileMenuButton.addEventListener('click', () => {
@@ -197,4 +225,6 @@
     });
   </script>
 
-</body></html>
+</body>
+
+</html>
