@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Ditrator</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style type="text/tailwindcss">
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #f4f4f9;
+        }
+        .header-bg {
+            background-color: #1f2937;
+        }
+        .nav-link {
+            @apply text-white hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium;
+        }
+        .nav-link-active {
+            @apply text-red-500;
+        }
+        .hero-section {
+            background-color: #2c3e50;
+            color: white;
+        }
+        .section-title {
+            @apply text-2xl font-bold mb-4;
+        }
+        .card {
+            @apply bg-white rounded-lg shadow-lg overflow-hidden;
+        }
+        .btn {
+            @apply px-6 py-3 rounded-md font-semibold shadow-md transition duration-300;
+        }
+        .btn-primary {
+            @apply bg-red-500 text-white hover:bg-gray-600;
+        }
+        .btn-secondary {
+            @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
+        }
+        .btn-outline {
+            @apply border border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white;
+        }
+        .footer-bg {
+            background-color: #111827;
+            color: #d1d5db;
+        }
+        .icon-text-container {
+            @apply flex items-center space-x-2 text-sm;
+        }
+        .carousel-item {
+            @apply absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out;
+        }
+        .carousel-item.active {
+            @apply opacity-100;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header-bg fixed top-0 left-0 right-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <img alt="Ditrator Logo" class="h-12 w-auto mr-2"
+                        src="./img/logo1.png"/>
+                    <!-- <span class="text-white text-xl font-bold">DITRATOR</span> -->
+                    <!-- <span class="text-gray-400 text-xs ml-2 mt-2 block">Distribuidor de Peças e Serviços</span> -->
+                </div>
+                <nav class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a class="nav-link" href="#">HOME</a>
+                        <a class="nav-link nav-link-active" href="#">EMPRESA</a>
+                        <a class="nav-link" href="#">SOBRE NÓS</a>
+                        <a class="nav-link" href="#">CATÁLOGO</a>
+                        <a class="nav-link" href="#">CONTATO</a>
+                        <a class="nav-link" href="#">CLIENTE</a>
+                    </div>
+                </nav>
+                <div class="md:hidden">
+                    <button class="text-white hover:text-red-500 focus:outline-none" id="mobile-menu-button">
+                        <span class="material-icons">menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden hidden bg-gray-800" id="mobile-menu">
+            <a class="block nav-link px-4 py-2" href="#">HOME</a>
+            <a class="block nav-link nav-link-active px-4 py-2" href="#">EMPRESA</a>
+            <a class="block nav-link px-4 py-2" href="#">SOBRE NÓS</a>
+            <a class="block nav-link px-4 py-2" href="#">CATÁLOGO</a>
+            <a class="block nav-link px-4 py-2" href="#">CONTATO</a>
+            <a class="block nav-link px-4 py-2" href="#">CLIENTE</a>
+        </div>
+    </header>
+    <section class="hero-section pt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+            <div class="relative w-full max-w-3xl mx-auto h-[400px] overflow-hidden rounded-lg shadow-xl" id="carousel">
+                <div class="carousel-item active">
+                    <img alt="Novidades Ditrator" class="w-full h-full object-cover"
+                        src="./img/bghome.jpg" />
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center p-4">
+                        <h1 class="text-3xl sm:text-4xl font-bold mb-2">NOVIDADES DITRATOR</h1>
+                        <p class="text-lg text-gray-200">Fique por dentro dos nossos lançamentos e promoções.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img alt="Filial nova em Cascavel" class="w-full h-full object-cover"
+                        src="./img/fachada.jpg" />
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center p-4">
+                        <h1 class="text-3xl sm:text-4xl font-bold mb-2">FILIAL NOVA EM CASCAVEL</h1>
+                        <p class="text-lg text-gray-200">Nosso novo centro de distribuição para melhor atendê-lo.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img alt="Visite nosso Instagram" class="w-full h-full object-cover"
+                        src="./img/bghome.jpg" />
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center p-4">
+                        <h1 class="text-3xl sm:text-4xl font-bold mb-2">VISITE NOSSO INSTAGRAM</h1>
+                        <p class="text-lg text-gray-200">Siga @ditratoroficial e acompanhe nossas novidades!</p>
+                    </div> 
+                </div>
+                <button
+                    class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none"
+                    id="prevBtn">
+                    <span class="material-icons">chevron_left</span>
+                </button>
+                <button
+                    class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none"
+                    id="nextBtn">
+                    <span class="material-icons">chevron_right</span>
+                </button>
+                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2" id="indicators">
+                    <button
+                        class="w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100 focus:outline-none indicator active-indicator"></button>
+                    <button
+                        class="w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100 focus:outline-none indicator"></button>
+                    <button
+                        class="w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100 focus:outline-none indicator"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-12">
+                    <p class="text-sm text-gray-500 mb-1">CONHEÇA NOSSOS</p>
+                    <h2 class="section-title text-gray-800">PRODUTOS</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        Trabalhamos com peças agrícolas e motores de diesel. A DITRATOR oferece peças de qualidade com
+                        marcas renomadas, com um preço acessível.
+                    </p>
+                </div>
+                <div class="md:w-1/2 grid grid-cols-1 gap-6">
+                    <div class="card">
+                        <img alt="Peças para tratores agrícolas" class="w-full h-48 object-cover"
+                            src="./img/agricolas.jpg" />
+                        <div class="p-4 bg-gray-800 text-white text-center">
+                            <p class="font-semibold">TRATORES AGRÍCOLAS</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img alt="Peças para motores diesel" class="w-full h-48 object-cover"
+                            src="./img/diesel.jpg" />
+                        <div class="p-4 bg-gray-800 text-white text-center">
+                            <p class="font-semibold">MOTORES DIESEL</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <img alt="Interior da loja Ditrator" class="rounded-lg shadow-xl w-full"
+                        src="./img/pinhais.jpg" />
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <p class="text-sm text-gray-500 mb-1">CONHEÇA</p>
+                    <h2 class="section-title text-gray-800">A DITRATOR</h2>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Estamos sempre em busca de novidades, e o que acontece na DITRATOR. Conheça-nos e venha nos
+                        fazer uma visita hoje mesmo.
+                    </p>
+                    <button class="btn btn-outline">SAIBA MAIS</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-12 bg-gray-800 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-12">
+                    <p class="text-sm text-gray-400 mb-1">CATÁLOGO</p>
+                    <h2 class="section-title">ELETRÔNICO</h2>
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        Acesse nosso catálogo eletrônico, e fique por dentro das promoções e novidades!
+                    </p>
+                    <button class="btn btn-primary">BAIXE JÁ</button>
+                </div>
+                <div class="md:w-1/2">
+                    <img alt="Captura de tela do catálogo eletrônico" class="rounded-lg shadow-xl w-full"
+                        src="./img/cat-3.png" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer-bg py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center mb-3 mt-9">
+                        <img alt="Ditrator Logo Branco" class="h-13 w-auto mr-3"
+                            src="./img/logo.png" />
+                        <!-- <span class="text-white text-2xl font-bold">DITRATOR</span> -->
+                    </div>
+                </div>
+                <div class="text-sm">
+                    <h4 class="font-semibold text-white mb-3">DITRATOR</h4>
+                    <div class="icon-text-container mb-2">
+                        <span class="material-icons text-red-500">location_on</span>
+                        <p>Rua Visconde de Guarapuava, 2747 - Rubem Berta - PR</p>
+                    </div>
+                    <div class="icon-text-container mb-2">
+                        <span class="material-icons text-red-500">phone</span>
+                        <p>(45) 3227-2392 | (45) 99980-7392 | (45) 99132-1791</p>
+                    </div>
+                    <div class="icon-text-container mb-2">
+                        <span class="material-icons text-red-500">email</span>
+                        <p>contato@ditrator.com.br</p>
+                    </div>
+                    <div class="icon-text-container">
+                        <span class="material-icons text-red-500">schedule</span>
+                        <p>Segunda a Sexta das 08:00 até 18:00</p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-3">ALGUMA DÚVIDA?</h4>
+                    <button
+                        class="btn btn-outline w-full border-gray-400 text-gray-400 hover:bg-red-500 hover:border-red-500 hover:text-white">ENTRE
+                        EM CONTATO</button>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-xs text-gray-500">
+                <p>© 2024 Ditrator. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Carousel Script
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const indicators = document.querySelectorAll('#indicators .indicator');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+        let intervalId;
+        function updateCarousel() {
+            carouselItems.forEach((item, index) => {
+                item.classList.toggle('active', index === currentIndex);
+            });
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active-indicator', index === currentIndex);
+                indicator.classList.toggle('opacity-100', index === currentIndex);
+                indicator.classList.toggle('opacity-50', index !== currentIndex);
+            });
+        }
+        function showNext() {
+            currentIndex = (currentIndex + 1) % carouselItems.length;
+            updateCarousel();
+        }
+        function showPrev() {
+            currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+            updateCarousel();
+        }
+        function startAutoplay() {
+            intervalId = setInterval(showNext, 5000); // Change slide every 5 seconds
+        }
+        function stopAutoplay() {
+            clearInterval(intervalId);
+        }
+        nextBtn.addEventListener('click', () => {
+            showNext();
+            stopAutoplay();
+            startAutoplay();
+        });
+        prevBtn.addEventListener('click', () => {
+            showPrev();
+            stopAutoplay();
+            startAutoplay();
+        });
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+                stopAutoplay();
+                startAutoplay();
+            });
+        });
+        // Initialize carousel
+        updateCarousel();
+        startAutoplay();
+    </script>
+
+</body>
+
+</html>
