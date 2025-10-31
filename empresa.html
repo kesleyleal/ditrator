@@ -11,48 +11,116 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style type="text/tailwindcss">
-    body {
-      font-family: 'Raleway', sans-serif;
-      background-color: #f4f4f9;
-    }
+            html{
+            scroll-behavior: smooth;
+        }
+    @font-face {
+   
+    font-family: 'gotham';
+    
+    
+    src: url('./fonts/gothamrnd-light-webfont.woff2') format('woff2'),
+         url('./fonts/gothamrnd-light-webfont.woff') format('woff');
+         
+    /* font-weight: 200; 
+    font-style: normal;
+    font-display: swap; */
+}
+
+@font-face {
+    font-family: 'gotham-bold';
+    src: url('./fonts/gothamrnd-light-webfont.woff2') format('woff2'),
+         url('./fonts/gothamrnd-light-webfont.woff') format('woff');
+    /* font-weight: 700; 
+    font-style: normal;
+    font-display: swap; */
+}
+
+        /* ------------------------------------------------------------------- */
+/* CSS para Transição de Página Suave (Fade Out/In) */
+/* ------------------------------------------------------------------- */
+
+/* 1. ESTADO INICIAL DA PÁGINA (Para transição na entrada) */
+/* Garante que o body possa ser animado e define a duração padrão de transição */
+body {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out; 
+}
+
+/* 2. ESTADO DE SAÍDA (O que acontece quando o usuário clica para sair) */
+/* A classe 'page-exit' será adicionada pelo JavaScript */
+body.page-exit {
+    opacity: 0; /* Torna a página transparente */
+}
+
+/* 3. ESTADO DE ENTRADA (O que acontece na página de destino ao ser carregada) */
+/* Use um keyframe para animar o corpo da página de opacidade 0 para 1 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Aplica a animação de fade-in no carregamento da página */
+body {
+    /* O navegador aplicará a transição 'page-exit' na saída e esta animação na entrada */
+    animation: fadeIn 0.3s forwards; 
+}
+
+        body {
+            font-family: 'gotham', sans-serif;
+            background-color: #f4f4f9;
+        }
     .header-bg {
-      background-color: #1f2937;
+      background-color: #2c323c;;
     }
-    .nav-link {
-      @apply text-white hover:text-[#FF6759] px-3 py-2 rounded-md text-sm font-medium;
-    }
+        .nav-link {
+            @apply text-white hover:text-[#FF6750] px-3 py-2 rounded-md text-sm font-bold;
+        }
     .nav-link-active {
-      @apply text-[#FF6759];
+      @apply text-[#FF6750];
     }
     .page-title-section {
       background-color: #2c3e50;
       color: white;
     }
     .section-title {
-      @apply text-2xl font-bold mb-4;
+      @apply text-3xl font-extrabold mb-4;
     }
     .card {
       @apply bg-white rounded-lg shadow-lg overflow-hidden;
     }
-    .btn {
-      @apply px-6 py-3 rounded-md font-semibold shadow-md transition duration-300;
-    }
-    .btn-primary {
-      @apply bg-[#FF6759] text-white hover:bg-[#FF6759];
-    }
+        .btn {
+            @apply px-6 py-3 rounded-md font-semibold shadow-md transition duration-300;
+        }
+        .btn-primary {
+            @apply bg-[#FF6750] text-white hover:text-black hover:bg-[#fff];
+        }
     .btn-secondary {
       @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
     }
     .btn-outline {
       @apply border border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white;
     }
-    .footer-bg {
-      background-color: #111827;
-      color: #d1d5db;
-    }
+        .footer-bg {
+            background-color: #252832;
+            color: #d1d5db;
+        }
+                .prod-bg{
+            background-color: #e5e4e4;
+        }
+                .about-bg{
+            background-color: #cbccce;
+        }
     .icon-text-container {
       @apply flex items-center space-x-2 text-sm;
+    }
+    .backgroundimg{
+      background-image: url(./img/BG\ Cabeçalho\ \(EMPRESA\)\ 2.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
     }
   </style>
 </head>
@@ -70,14 +138,14 @@
           <div class="ml-10 flex items-baseline space-x-4">
             <a class="nav-link" href="./newsite.html">HOME</a>
             <a class="nav-link nav-link-active" href="#">EMPRESA</a>
-            <a class="nav-link" href="newsite.html#about">SOBRE NÓS</a>
+            <!-- <a class="nav-link" href="newsite.html#about">SOBRE NÓS</a> -->
             <a class="nav-link" href="newsite.html#catalog">CATÁLOGO</a>
             <a class="nav-link" href="empresa.html#contact">CONTATO</a>
             <!-- <a class="nav-link" href="#">CLIENTE</a> -->
           </div>
         </nav>
         <div class="md:hidden">
-          <button class="text-white hover:text-[#FF6759] focus:outline-none" id="mobile-menu-button">
+          <button class="text-white hover:text-[#FF6750] focus:outline-none" id="mobile-menu-button">
             <span class="material-icons">menu</span>
           </button>
         </div>
@@ -86,17 +154,17 @@
     <div class="md:hidden hidden bg-gray-800" id="mobile-menu">
       <a class="block nav-link px-4 py-2" href="#">HOME</a>
       <a class="block nav-link nav-link-active px-4 py-2" href="#">EMPRESA</a>
-      <a class="block nav-link px-4 py-2" href="newsite.html#about">SOBRE NÓS</a>
+      <!-- <a class="block nav-link px-4 py-2" href="newsite.html#about">SOBRE NÓS</a> -->
       <a class="block nav-link px-4 py-2" href="newsite.html#catalogo">CATÁLOGO</a>
       <a class="block nav-link px-4 py-2" href="empresa.html#contact">CONTATO</a>
       <!-- <a class="block nav-link px-4 py-2" href="#">CLIENTE</a> -->
     </div>
   </header>
   <main class="pt-16">
-    <section class="page-title-section">
+    <section class="page-title-section backgroundimg">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
-        <h1 class="text-4xl font-bold">Nossa Empresa</h1>
-        <p class="text-lg text-gray-300 mt-2">Conheça mais sobre a Ditrator e nossas unidades.</p>
+        <h1 class="text-4xl font-extrabold back">Nossa Empresa</h1>
+        <p class="text-lg text-gray-300 mt-2">Conheça mais sobre a Ditrator.</p>
       </div>
     </section>
     <section class="py-12 bg-white">
@@ -104,72 +172,89 @@
         <h2 class="section-title text-gray-800 text-center mb-8">Sobre a Ditrator</h2>
         <div class="max-w-3xl mx-auto text-gray-600 leading-relaxed text-justify">
           <p class="mb-4">
-            A Ditrator é uma empresa consolidada no mercado de distribuição de peças agrícolas e para motores diesel.
-            Com anos de experiência, nos dedicamos a fornecer produtos de alta qualidade e serviços especializados para
-            atender às necessidades dos nossos clientes em todo o país.
+            Somos uma empresa consolidada no mercado de distribuição de peças agrícolas. Com mais de 33 anos de
+            experiência, nos dedicamos a fornecer produtos de qualidade, com atendimento especializado e excelente
+            estrutura logística, para atender às necessidades dos nossos clientes em todo o país.
+
           </p>
           <p class="mb-4">
-            Nossa missão é ser referência no setor, oferecendo um portfólio completo de peças das marcas mais renomadas,
-            garantindo durabilidade e desempenho para os equipamentos de nossos parceiros. Investimos constantemente em
-            inovação e na capacitação de nossa equipe para proporcionar o melhor atendimento e suporte técnico.
+            Comercializamos peças para tratores agrícolas, colheitadeiras e motores diesel agrícolas, apenas para
+            clientes com CNPJ e CNAE específicos para comércio de peças agrícolas e/ou manutenção de máquinas agrícolas.
+
+          </p>
+          <p class="mb-4">
+            Nossa missão é oferecer o melhor serviço de reposição de peças agrícolas e para motores diesel, com
+            atendimento especializado, visando a satisfação do cliente.
+
           </p>
           <p>
-            Valorizamos a confiança e a parceria com nossos clientes, buscando sempre superar suas expectativas. A
-            Ditrator está comprometida com o desenvolvimento do agronegócio e do setor de transportes, fornecendo
-            soluções eficientes e contribuindo para o sucesso de seus negócios.
+            Temos a visão de ser referência em reposição de autopeças agrícolas e motores diesel na região sul do
+            Brasil.
+
           </p>
         </div>
       </div>
     </section>
-    <section class="py-12 bg-gray-50">
+    <section class="py-12 prod-bg">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="section-title text-gray-800 text-center mb-10">Nossas Filiais</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div class="card">
-            <img alt="Fachada da filial de Cascavel" class="w-full h-56 object-cover" src="./img/fachada.jpg" />
+            <img alt="Fachada da filial de Cascavel" class="w-full h-56 object-cover"
+              src="./img/1 - Pinhais-PR (ajustado).jpg" />
             <div class="p-6">
               <h3 class="text-xl font-semibold text-gray-800 mb-2">Pinhais - PR</h3>
               <p class="text-gray-600 text-sm mb-1"><span
-                  class="material-icons text-sm text-[#FF6759] inline-block mr-1 align-middle">location_on</span>R. Wanda
-                dos Santos Mallmann, 1547, Pinhais</p>
+                  class="material-icons text-sm text-[#FF6750] inline-block mr-1 align-middle">location_on</span>R.
+                Wanda
+                dos Santos Mallmann, 1547</p>
               <p class="text-gray-600 text-sm"><span
-                  class="material-icons text-sm text-[#FF6759] inline-block mr-1 align-middle">phone</span>(41) 3306-6500
+                  class="material-icons text-sm text-[#FF6750] inline-block mr-1 align-middle">phone</span>(41)
+                3306-6500
               </p>
             </div>
           </div>
           <div class="card">
-            <img alt="Fachada da filial de Maringá" class="w-full h-56 object-cover" src="./img/estchap.jpg" />
+            <img alt="Fachada da filial de Maringá" class="w-full h-56 object-cover"
+              src="./img/4 - Cascavel-PR (ajustado).jpg" />
             <div class="p-6">
               <h3 class="text-xl font-semibold text-gray-800 mb-2">Cascavel - PR</h3>
               <p class="text-gray-600 text-sm mb-1"><span
-                  class="material-icons text-sm text-[#FF6759] inline-block mr-1 align-middle">location_on</span>R.
+                  class="material-icons text-sm text-[#FF6750] inline-block mr-1 align-middle">location_on</span>R.
                 Gandhi, 335, Brazmadeira</p>
               <p class="text-gray-600 text-sm"><span
-                  class="material-icons text-sm text-[#FF6759] inline-block mr-1 align-middle">phone</span>(45) 3097-9696
+                  class="material-icons text-sm text-[#FF6750] inline-block mr-1 align-middle">phone</span>(45)
+                3097-9696
               </p>
             </div>
           </div>
           <div class="card">
-            <img alt="Fachada da filial de Londrina" class="w-full h-56 object-cover" src="./img/pinhais.jpg" />
+            <img alt="Fachada da filial de Londrina" class="w-full h-56 object-cover"
+              src="./img/3 - Canoas-RS (ajustado).jpg" />
             <div class="p-6">
               <h3 class="text-xl font-semibold text-gray-800 mb-2">Canoas - RS</h3>
               <p class="text-gray-600 text-sm mb-1"><span
-                  class="material-icons text-sm text-[#FF6759] inline-block mr-1 align-middle">location_on</span>R. Ivanir
+                  class="material-icons text-sm text-[#FF6750] inline-block mr-1 align-middle">location_on</span>R.
+                Ivanir
                 Jose Pagliarini, 455, Niteroi</p>
               <p class="text-gray-600 text-sm"><span
-                  class="material-icons text-sm text-[#FF6759] inline-block mr-1 align-middle">phone</span>(51) 3075-8401
+                  class="material-icons text-sm text-[#FF6750] inline-block mr-1 align-middle">phone</span>(51)
+                3075-8401
               </p>
             </div>
           </div>
           <div class="card">
-            <img alt="Fachada da filial de Curitiba" class="w-full h-56 object-cover" src="./img/fachada.jpg" />
+            <img alt="Fachada da filial de Curitiba" class="w-full h-56 object-cover"
+              src="./img/2 - Chapecó-SC (ajustado).jpg" />
             <div class="p-6">
-              <h3 class="text-xl font-semibold text-gray-800 mb-2">Chapecó - RS</h3>
+              <h3 class="text-xl font-semibold text-gray-800 mb-2">Chapecó - SC</h3>
               <p class="text-gray-600 text-sm mb-1"><span
-                  class="material-icons text-sm text-[#FF6759] inline-block mr-1 align-middle">location_on</span>R. Herval
+                  class="material-icons text-sm text-[#FF6750] inline-block mr-1 align-middle">location_on</span>R.
+                Herval
                 do Oeste, 171E, Eldorado</p>
               <p class="text-gray-600 text-sm"><span
-                  class="material-icons text-sm text-[#FF6759] inline-block mr-1 align-middle">phone</span>(49) 3025-9600
+                  class="material-icons text-sm text-[#FF6750] inline-block mr-1 align-middle">phone</span>(49)
+                3025-9600
               </p>
             </div>
           </div>
@@ -179,38 +264,42 @@
   </main>
   <a name="contact"></a>
   <footer class="footer-bg py-12">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto px-4 sm:px-0 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div>
-          <div class="flex items-center mt-9 mb-4">
-            <img alt="Ditrator Logo Branco" class="h-13 w-auto mr-3" src="./img/logo_white.png" />
-            <!-- <span class="text-white text-2xl font-bold">DITRATOR</span> -->
+        <div class="flex flex-col items-center">
+
+          <div class="flex items-center mb-3 mt-9">
+
+            <img alt="Ditrator Logo Branco" class="w-80 h-auto mr-3" src="./img/logo_white1.png" />
+
           </div>
+
         </div>
         <div class="text-sm">
           <h4 class="font-semibold text-white mb-3">SOBRE</h4>
           <div class="icon-text-container mb-2">
-            <span class="material-icons text-[#FF6759]">location_on</span>
-            <p class="text-s">R. Wanda dos santos Mallmann, 1547 - Pinhais/PR</p>
+            <span class="material-icons text-[#FF6750]">location_on</span>
+            <p class="text-s">R. Wanda dos Santos Mallmann, 1547 - Pinhais/PR</p>
           </div>
           <div class="icon-text-container mb-2">
-            <span class="material-icons text-[#FF6759]">phone</span>
+            <span class="material-icons text-[#FF6750]">phone</span>
             <p>(41) 3306-6500</p>
           </div>
           <div class="icon-text-container mb-2">
-            <span class="material-icons text-[#FF6759]">email</span>
+            <span class="material-icons text-[#FF6750]">email</span>
             <p>contato@ditrator.com.br</p>
           </div>
           <div class="icon-text-container">
-            <span class="material-icons text-[#FF6759]">schedule</span>
-            <p>Segunda a Sexta das 08:00 ás 18:00</p>
+            <span class="material-icons text-[#FF6750]">schedule</span>
+            <p>Segunda a Sexta das 08:00 às 18:00</p>
           </div>
         </div>
         <div>
           <h4 class="font-semibold text-white mb-3">ALGUMA DÚVIDA?</h4>
-          <a href="https://wa.me/554133066500?text=Ol%C3%A1%2C%20vim%20pelo%20site%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es" target="_blank"><button class="btn btn-outline w-full border-gray-400 text-gray-400 hover:bg-[#FF6759] hover:border-[#FF6759] hover:text-white">
-            ENTRE EM CONTATO
-          </button></a>
+          <a href="https://wa.me/554133066500?text=Ol%C3%A1%2C%20vim%20pelo%20site%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es"
+            target="_blank"><button class="btn btn-primary w-full">
+              ENTRE EM CONTATO
+            </button></a>
         </div>
       </div>
       <div class="border-t border-gray-700 mt-8 pt-6 text-center text-xs text-gray-500">
@@ -224,7 +313,52 @@
     mobileMenuButton.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Seleciona todos os links '<a>' que têm um atributo 'href'
+      const links = document.querySelectorAll('a[href]');
+
+      links.forEach(link => {
+        const href = link.getAttribute('href');
+
+        // Ignora links âncora (para deixar o scroll-behavior: smooth agir)
+        if (href.startsWith('#')) {
+          return;
+        }
+
+        // Verifica se o link é interno (mesmo domínio ou caminho relativo)
+        // Isso é crucial para não interferir em links externos (YouTube, WhatsApp, etc.)
+        const isInternal = (link.hostname === window.location.hostname || link.hostname === '');
+
+        if (isInternal) {
+          link.addEventListener('click', (event) => {
+
+            // Impede a navegação instantânea padrão
+            event.preventDefault();
+
+            // Adiciona a classe que inicia o Fade Out (opacidade 0)
+            document.body.classList.add('page-exit');
+
+            // Espera o tempo da animação (300ms) e então navega
+            // O tempo aqui (300) deve ser IGUAL à duração da transição no CSS
+            setTimeout(() => {
+              window.location.href = href;
+            }, 300);
+          });
+        }
+      });
+    });
   </script>
+
+  <a href="https://wa.me/4133066500?text=Olá,%20estou%20mandando%20essa%20mensagem%20pelo%20site!" target="_blank"
+    class="fixed bottom-6 right-6 z-50 rounded-full shadow-lg 
+           w-14 h-14 flex items-center justify-center 
+           transition duration-300 ease-in-out transform hover:scale-110" style="background-color: #25D366;"
+    aria-label="Fale conosco pelo WhatsApp">
+
+    <i class="fa fa-whatsapp text-white text-3xl"></i>
+
+  </a>
 
 </body>
 
