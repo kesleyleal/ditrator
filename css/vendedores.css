@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Varela+Round&display=swap');
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #2A2C35;
+    color: #ffff;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Varela Round", sans-serif;
+}
+
+.container {
+    /* background-color: #FF6759; */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+    max-width: 80%;
+}
+
+.container h1{
+    font-size: 30px;
+}
+
+.container h2 {
+    font-size: 20px;
+}
+.container h3 {
+  font-size: 18px;
+  margin-bottom: -22px;
+  margin-top: 5px;
+  font-weight: 600;
+}
+.container h4 {
+  font-size: 14px;
+  font-weight: 100;
+  margin-bottom: 2px;
+}
+.logo_home {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    /* object-fit: cover; */
+    border: 3px solid #2A2C35;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+    border-radius: 15px;
+    border: 3px solid #ff6759;
+    margin: 5px 25px;
+    color: #ffff;
+    text-decoration: none;
+    background-color: #2A2C35;
+}
+
+.link img {
+    width: 30px;
+}
+a.link:hover{
+    background-color: #ff6759;
+    color: #2A2C35;
+}
+
+.link p {
+    font-size: 17px;
+    margin-left: 140px;
+}
+
+.subtitle {
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+.subphone {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+
+
+div.content {
+    margin-left: 230px;
+    padding: 1px 16px;
+    /* height: 1000px; */
+  }
+  
+  div.ramal {
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  div.information {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  div.content1 {
+    margin-right: 150px;
+    margin-left: 100px;
+  }
+  
+  .email {
+    cursor: pointer;
+  }
+  
+  div.info_content {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  div.info_content p {
+    border-bottom: 2px solid #ff6759;
+    font-weight: 700;
+  }
+  
+  .main_table{
+      justify-content: center;
+      width: 100%;
+      border-radius: 15px;
+      padding: 7px;
+      /* border-collapse: collapse; */
+      border: 3px solid #FF6759;
+    }
+  
+    
+    .main_table td{
+      text-align: center;
+      /* border-collapse: collapse; */
+      /* background-color: rgb(224, 224, 224); */
+      font-size: 15px;
+    }
+    
+    .main_table th{
+      text-align: center;
+      padding-top: 10px;
+      padding-bottom: 30px;
+    }
+  
+    .border {
+      border-bottom: 3px solid #FF6759;
+    }
+  
+  
+  @media screen and (max-width: 650px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+  
+    .sidebar a {
+      float: left;
+    }
+  
+    div.content {
+      margin-left: 0;
+    }
+  
+    .logo_ditr {
+      display: none;
+    }
+  
+    div.info_content {
+      font-size: 20px;
+    }
+  
+    div.information {
+      font-size: 20px;
+    }
+    .main_table{
+      width: 100%;
+    }
+  }
+  
+  /* @media screen and (max-height: 500px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+  
+    .sidebar a {
+      float: left;
+    }
+  
+    div.content {
+      margin-left: 0;
+    }
+  
+    .logo_ditr {
+      display: none;
+    }
+    .main_table{
+      width: 100%;
+    }
+  } */
+  
+  @media screen and (max-width: 865px) {
+    .skype {
+      display: none;
+    }
+  
+    .email {
+      display: none;
+    }
+  
+    .name_mail {
+      display: none;
+    }
+  
+    .name_skp {
+      display: none;
+    }
+    .main_table{
+      width: 100%;
+    }
+    h1 {
+      font-size: 20px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+    h3 {
+      font-size: 17px;
+      margin: 0;
+    }
+    h4 {
+      font-size: 14px;
+    }
+  }
+  
+  @media screen and (min-width: 841px){
+    .main_table{
+        width: 100%;
+      }
+  }
+  
+  @media screen and (min-width: 1440px) {
+    .sidebar a {
+      font-size: 20px;
+      padding: 10px;
+    }
+  
+    div.content {
+      padding: 20px;
+    }
+  
+    .main_table{
+      font-size: 20px;
+      width: 100%;
+    }
+  }
+  
+  

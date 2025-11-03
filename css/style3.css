@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: rgba(233, 233, 233, 0.87);
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 230px;
+  background-color: #2A2C35;
+  ;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: flex;
+  color: white;
+  padding: 7px;
+  text-decoration: none;
+  font-size: 13px;
+  text-align: end;
+  justify-content: flex-end;
+}
+
+.sidebar a.active {
+  background-color: #FF6759;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  border-bottom: 3px solid #FF6759;
+  color: white;
+}
+
+div.content {
+  margin-left: 230px;
+  padding: 1px 16px;
+  /* height: 1000px; */
+}
+
+div.ramal {
+  font-weight: 400;
+  font-style: italic;
+}
+
+div.information {
+  display: flex;
+  flex-direction: row;
+}
+
+div.content1 {
+  margin-right: 150px;
+  margin-left: 100px;
+}
+
+.email {
+  cursor: pointer;
+}
+
+div.info_content {
+  display: flex;
+  flex-direction: row;
+}
+
+div.info_content p {
+  border-bottom: 2px solid #ff6759;
+  font-weight: 700;
+}
+
+.main_table{
+    justify-content: center;
+    width: 70%;
+    /* background-color: rgb(224, 224, 224); */
+    padding: 5px;
+    border-collapse: collapse;
+  }
+  
+  .main_table td{
+    text-align: center;
+  }
+  
+  .main_table th{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 22px;
+  }
+
+  .border {
+    border-bottom: 3px solid #FF6759;
+  }
+
+
+@media screen and (max-width: 650px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .sidebar a {
+    float: left;
+  }
+
+  div.content {
+    margin-left: 0;
+  }
+
+  .logo_ditr {
+    display: none;
+  }
+
+  div.info_content {
+    font-size: 20px;
+  }
+
+  div.information {
+    font-size: 20px;
+  }
+  .main_table{
+    width: 100%;
+  }
+}
+
+@media screen and (max-height: 500px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .sidebar a {
+    float: left;
+  }
+
+  div.content {
+    margin-left: 0;
+  }
+
+  .logo_ditr {
+    display: none;
+  }
+  .main_table{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .skype {
+    display: none;
+  }
+
+  .email {
+    display: none;
+  }
+
+  .name_mail {
+    display: none;
+  }
+
+  .name_skp {
+    display: none;
+  }
+  .main_table{
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 841px){
+  .main_table{
+      width: 80%;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+  .sidebar a {
+    font-size: 20px;
+    padding: 10px;
+  }
+
+  div.content {
+    padding: 20px;
+  }
+
+  .main_table{
+    font-size: 20px;
+    width: 80%;
+  }
+}
+
+
+
+
+/* @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  } */

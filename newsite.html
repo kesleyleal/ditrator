@@ -14,9 +14,6 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style type="text/tailwindcss">
-        html{
-            scroll-behavior: smooth;
-        }
         @font-face {
    
     font-family: 'gotham';
@@ -38,7 +35,16 @@
     font-style: normal;
     font-display: swap; */
 }
+        html{
+            scroll-behavior: smooth;
+        }
 
+        /* ------------------------------------------------------------------- */
+/* CSS para Transição de Página Suave (Fade Out/In) */
+/* ------------------------------------------------------------------- */
+
+/* 1. ESTADO INICIAL DA PÁGINA (Para transição na entrada) */
+/* Garante que o body possa ser animado e define a duração padrão de transição */
 body {
     opacity: 1;
     transition: opacity 0.3s ease-in-out; 
@@ -127,7 +133,7 @@ body {
             @apply opacity-100;
         }
 .backgroundimg2 {
-    background-image: url(./img/BG-Carrossel.jpg);
+    background-image: url(./img/vlad-stawizki-CQbaooHFSWQ-unsplash.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -152,11 +158,11 @@ body {
     
     /* 1. EFEITO ESCURO */
     /* Cor preta com 50% de opacidade. Ajuste o '0.5' para mais ou menos escuridão */
-    background-color: rgba(44, 50, 60, 0.4); 
+    background-color: rgba(44, 50, 60, 0.6); 
     
     /* 2. EFEITO BLUR */
     /* Aplica um desfoque de 3px. Ajuste o valor para mais ou menos blur */
-    backdrop-filter: blur(5px); 
+    backdrop-filter: blur(3px); 
     /* OU filter: blur(3px); (veja a nota abaixo) */
     
     /* Garante que esta camada fique abaixo do conteúdo normal da div mas acima do background */
@@ -298,7 +304,8 @@ body {
             <div class="flex flex-col md:flex-row items-center">
                 <div class="w-full md:w-1/2 mb-8 md:mb-0">
                     <div class="relative w-full aspect-video rounded-md shadow-md overflow-hidden">
-                        <iframe src="https://www.youtube.com/embed/yT9fTDnvnZ0?autoplay=1&mute=1&controls=0&rel=0"
+                        <iframe src="https://www.youtube.com/embed/G_4sToEoCA4?autoplay=1&mute=1&controls=0&rel=0"
+                        
                             title="ytb ditrator" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen class="absolute inset-0 w-full h-full">
@@ -324,7 +331,7 @@ body {
                 </div>
             </div>
         </div>
-    </section>
+    </section>   
     <a name="catalog"></a>
     <section class="py-12 header-bg text-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -343,6 +350,75 @@ body {
                     <img alt="Captura de tela do catálogo eletrônico" class="rounded-lg shadow-xl w-auto"
                         src="./img/Catálogo Eletrônico.jpg" />
                 </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-16 bg-white text-gray-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row-reverse items-center">
+                
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pl-12">
+                    <p class="section-sub-title text-gray-500">CONTATO</p> 
+                    <h2 class="section-title text-gray-900">ENCONTRE UM REPRESENTANTE</h2> 
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        Selecione seu município para encontrar o representante mais próximo ou fale diretamente com nossa equipe de vendas interna.
+                    </p>
+
+                    <div class="space-y-4">
+<div>
+        <label for="estado-select" class="block text-sm font-medium text-gray-700 mb-1">Selecione seu Estado</label>
+        <select id="estado-select" name="estado"
+               class="block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 appearance-none">
+           <option value="" disabled selected>Escolha um Estado...</option>
+
+            <option value="PR">Paraná (PR)</option>
+
+            <option value="RS">Rio Grande do Sul (RS)</option>
+
+            <option value="SC">Santa Catarina (SC)</option>
+
+            <!-- Opção para o Fallback -->
+
+            <option value="outros">Não encontrei minha região / Outras Regiões</option> 
+        </select>
+    </div>
+
+    <!-- CAMPO 2: Input de Texto com Datalist para Município (Este fica igual) -->
+    <div>
+        <label for="municipio-input" class="block text-sm font-medium text-gray-700 mb-1">Digite ou selecione seu Município</label>
+        <input type="text" id="municipio-input" placeholder="Digite para autocompletar, ex: Curitiba (PR)"
+               class="block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+               list="municipio-suggestions">
+        
+        <datalist id="municipio-suggestions">
+            <!-- As opções serão adicionadas aqui pelo JavaScript -->
+        </datalist>
+    </div>
+
+
+
+                        
+<div id="search-results-display" class="mt-6">
+    <!-- O resultado do JavaScript será renderizado aqui -->
+</div>
+                        <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                            <button type="button" onclick="buscarRepresentantes()" 
+                                    class="btn btn-primary">
+                                Buscar Representantes
+                            </button>
+                            
+                            <a href="https://ditrator.com.br/vendedores.html" class="btn btn-secondary" target="_blank">
+                                Falar com Vendas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 rounded-lg overflow-hidden shadow-xl">
+                    <img alt="Equipe de atendimento ao cliente" class="w-full h-auto object-cover"
+                         src="./img/1 - Pinhais-PR.jpg" />
+                </div>
+
             </div>
         </div>
     </section>
@@ -484,7 +560,304 @@ body {
                 }
             });
         });
+        /**
+/**
+ * Dados dos Representantes.
+ * Este objeto simula o mapeamento de municípios para seus representantes.
+ * ATENÇÃO: Os chaves devem corresponder aos 'value' da tag <select> no index.html.
+ */
+const REPRESENTANTES_DETALHES = {
+    // 4 no Paraná
+    'PR_KESLEY': { nome: 'Kesley (PR OESTE)', telefone: '(45) 99123-4567', email: 'kesley@exemplo.com.br' },
+    'PR_PAULO': { nome: 'Paulo (PR LESTE)', telefone: '(41) 98877-6655', email: 'paulo@exemplo.com.br' },
+    'PR_ANA': { nome: 'Ana (PR NORTE)', telefone: '(43) 97766-5544', email: 'ana@exemplo.com.br' },
+    'PR_LUCAS': { nome: 'Lucas (PR SUL)', telefone: '(42) 96655-4433', email: 'lucas@exemplo.com.br' },
+    // 2 no Rio Grande do Sul
+    'RS_MARCIA': { nome: 'Márcia (RS CAPITAL)', telefone: '(51) 95544-3322', email: 'marcia@exemplo.com.br' },
+    'RS_RENATO': { nome: 'Renato (RS INTERIOR)', telefone: '(53) 94433-2211', email: 'renato@exemplo.com.br' },
+    // 1 em Santa Catarina
+    'SC_GABRIELA': { nome: 'Gabriela (SC GERAL)', telefone: '(48) 93322-1100', email: 'gabriela@exemplo.com.br' },
+};
 
+
+/**
+ * Mapeamento dos municípios para seus respectivos representantes.
+ * Chave de busca: 'ESTADO_MUNICIPIO_NORMALIZADO'
+ * Valor: 'ID_DO_REPRESENTANTE'
+ * * EXEMPLOS (EXPANDA ESTA LISTA COM SEUS 600 MUNICÍPIOS!)
+ */
+const MUNICIPIOS_MAP = {
+    // Paraná (PR)
+    'PR_cascavel': 'PR_KESLEY',
+    'PR_fozdoiguacu': 'PR_KESLEY',
+    'PR_toledo': 'PR_KESLEY',
+    'PR_maringa': 'PR_ANA',
+    'PR_londrina': 'PR_ANA',
+    'PR_curitiba': 'PR_PAULO',
+    'PR_pinhais': 'PR_PAULO',
+    'PR_saojosedospinhais': 'PR_PAULO',
+    'PR_weissopolis': 'PR_PAULO',
+    'PR_vargemgrande': 'PR_LUCAS',
+    
+    // Rio Grande do Sul (RS)
+    'RS_portoalegre': 'RS_MARCIA',
+    'RS_caxiasdosul': 'RS_RENATO',
+    'RS_canoas': 'RS_MARCIA',
+
+    // Santa Catarina (SC)
+    'SC_florianopolis': 'SC_GABRIELA',
+    'SC_joinville': 'SC_GABRIELA',
+    'SC_blumenau': 'SC_GABRIELA',
+    'SC_balneariocamboriu': 'SC_GABRIELA',
+};
+
+
+/**
+ * Função utilitária para normalizar strings (remover acentos e caracteres especiais, e converter para minúsculas).
+ * Essencial para que a busca funcione independentemente da digitação do usuário.
+ */
+function normalizeString(str) {
+    // Remove espaços extras, converte para minúsculas, remove acentos e caracteres especiais.
+    return str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '');
+}
+
+/**
+ * Função utilitária para limpar o número de telefone e formatá-lo para o link do WhatsApp (wa.me).
+ */
+function cleanPhoneNumber(phone) {
+    // Remove todos os caracteres não numéricos.
+    const numericPhone = phone.replace(/\D/g, ''); 
+    
+    // Adiciona o DDI brasileiro (55) se ainda não estiver presente
+    if (!numericPhone.startsWith('55')) {
+        // Assume que o número começa com o DDD
+        return '55' + numericPhone; 
+    }
+    return numericPhone;
+}
+
+/**
+ * Funções de Datalist (Autocompletar)
+ * Popula a <datalist> dinamicamente com base no estado selecionado.
+ */
+function populateMunicipiosDatalist(selectedEstado) {
+    const datalist = document.getElementById('municipio-suggestions');
+    if (!datalist) return;
+
+    // 1. Limpa as opções anteriores
+    datalist.innerHTML = '';
+
+    // 2. Limpa o campo de input do município quando o estado muda
+    const inputMunicipio = document.getElementById('municipio-input');
+    if (inputMunicipio) {
+        inputMunicipio.value = '';
+    }
+
+    // 3. Verifica se um estado válido (PR, RS, SC) foi selecionado
+    if (!selectedEstado || !['PR', 'RS', 'SC'].includes(selectedEstado)) {
+        console.log("Datalist de municípios limpa (Nenhum estado válido selecionado).");
+        return; // Não popula se for 'outros' ou vazio
+    }
+
+    const uniqueOptions = new Set();
+    const prefix = selectedEstado + '_'; // Ex: 'PR_'
+
+    // 4. Itera e filtra o mapa de municípios
+    Object.keys(MUNICIPIOS_MAP).forEach(key => {
+        // Verifica se a chave começa com o prefixo do estado (ex: 'PR_')
+        if (key.startsWith(prefix)) {
+            
+            // Extrai o nome normalizado (ex: 'curitiba' de 'PR_curitiba')
+            const mun_normalized = key.substring(prefix.length);
+            
+            // Converte o nome normalizado de volta para uma visualização amigável
+            const mun_readable = mun_normalized.charAt(0).toUpperCase() + mun_normalized.slice(1);
+            
+            // A opção que o usuário verá no dropdown (ex: "Curitiba")
+            const readableOption = mun_readable;
+
+            if (!uniqueOptions.has(readableOption)) {
+                const option = document.createElement('option');
+                // O valor é o que será colocado no campo de input.
+                option.value = readableOption; 
+                datalist.appendChild(option);
+                uniqueOptions.add(readableOption);
+            }
+        }
+    });
+    console.log(`Datalist de municípios populada com ${uniqueOptions.size} opções para ${selectedEstado}.`);
+}
+
+
+/**
+ * Função principal para buscar representantes com base no ESTADO e MUNICÍPIO.
+ */
+function buscarRepresentantes() {
+    // 1. Pega os elementos
+    const selectEstado = document.getElementById('estado-select');
+    const inputMunicipio = document.getElementById('municipio-input');
+
+    const estadoSelecionado = selectEstado ? selectEstado.value : '';
+    // Extrai o valor do campo de input, que pode ser digitado ou selecionado do datalist
+    let municipioDigitado = inputMunicipio ? inputMunicipio.value.trim() : ''; 
+    
+    const resultsDisplay = document.getElementById('search-results-display'); 
+    
+    // Limpa resultados anteriores
+    if (resultsDisplay) {
+        resultsDisplay.innerHTML = '';
+    }
+
+    // 2. Validação da Seleção de Estado
+    if (!estadoSelecionado) {
+        const msg = '<p class="text-red-600 font-semibold mt-4">Por favor, selecione seu Estado.</p>';
+        if (resultsDisplay) resultsDisplay.innerHTML = msg;
+        return;
+    }
+    
+    // 3. Fallback para "Outras Regiões"
+    if (estadoSelecionado === 'outros' || !['PR', 'RS', 'SC'].includes(estadoSelecionado)) {
+        return fallbackVendasInternas(resultsDisplay);
+    }
+    
+    // 4. Validação do Município para Regiões Atendidas
+    if (!municipioDigitado) {
+        const msg = '<p class="text-red-600 font-semibold mt-4">Por favor, digite ou selecione o nome do seu Município.</p>';
+        if (resultsDisplay) resultsDisplay.innerHTML = msg;
+        return;
+    }
+
+    // 5. Normaliza a chave de busca
+    // (O passo 5 anterior, que removia "(PR)", foi removido pois o datalist agora é filtrado)
+    const municipioNormalizado = normalizeString(municipioDigitado);
+    const chaveBusca = `${estadoSelecionado}_${municipioNormalizado}`;
+
+    // 6. Realiza a Busca
+    const idRepresentante = MUNICIPIOS_MAP[chaveBusca];
+    
+    if (idRepresentante) {
+        const representante = REPRESENTANTES_DETALHES[idRepresentante];
+
+        if (representante) {
+            console.log(`✅ Representante encontrado para ${municipioDigitado}/${estadoSelecionado}:`, representante);
+            
+            const whatsappLink = `https://wa.me/${cleanPhoneNumber(representante.telefone)}`;
+            
+            // Estrutura HTML para exibir o representante
+            const html = `
+                <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-500 rounded-lg shadow-md relative">
+                    <!-- BOTÃO DE FECHAR -->
+                    <button onclick="fecharResultados()" 
+                            class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 rounded-full hover:bg-blue-100 transition duration-150" aria-label="Fechar resultados">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+
+                    <p class="font-bold text-blue-700 text-lg mb-1">Seu Representante Comercial (${estadoSelecionado}):</p>
+                    <p class="text-gray-800">Nome: <span class="font-semibold">${representante.nome}</span></p>
+                    
+                    <!-- LINHA DO TELEFONE COM BOTÃO WHATSAPP -->
+                    <p class="text-gray-800 flex items-center gap-2">
+                        Telefone: <span class="font-semibold">${representante.telefone}</span>
+                        <a href="${whatsappLink}" target="_blank" title="Chamar no WhatsApp" 
+                           class="text-green-600 hover:text-green-700 transition duration-150 text-xl">
+                            <!-- Ícone do WhatsApp (Font Awesome) -->
+                            <i class="fa fa-whatsapp"></i>
+                        </a>
+                    </p>
+                    <p class="text-gray-800">Email: <a href="mailto:${representante.email}" class="text-blue-600 hover:underline">${representante.email}</a></p>
+                </div>
+            `;
+            
+            if (resultsDisplay) {
+                resultsDisplay.innerHTML = html;
+            }
+
+        } else {
+            // Município encontrado no mapa, mas ID de representante está errado (erro interno de dados)
+            return fallbackVendasInternas(resultsDisplay); 
+        }
+
+    } else {
+        // Município NÃO está na lista (ou digitado errado)
+        console.log(`⚠️ Município ${municipioDigitado}/${estadoSelecionado} não encontrado no mapa.`);
+        
+        const html = `
+            <div class="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded-lg text-yellow-700 shadow-md relative">
+                <button onclick="fecharResultados()" 
+                        class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 rounded-full hover:bg-yellow-100 transition duration-150" aria-label="Fechar resultados">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <p class="font-bold text-yellow-800">Não encontramos seu município.</p>
+                <p>Verifique a grafia ou utilize o botão "Falar com Vendas" para entrar em contato com nossa equipe.</p>
+            </div>
+        `;
+
+        if (resultsDisplay) {
+            resultsDisplay.innerHTML = html;
+        }
+    }
+}
+
+/**
+ * Função de fallback para o contato interno, usada para estados não servidos 
+ * ou quando o usuário seleciona "Outras Regiões".
+ */
+function fallbackVendasInternas(resultsDisplay) {
+    console.log('⚠️ Região não atendida diretamente ou não selecionada. Direcionando para Vendas Internas.');
+        
+    const html = `
+        <div class="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded-lg text-yellow-700 shadow-md relative">
+            <!-- BOTÃO DE FECHAR -->
+            <button onclick="fecharResultados()" 
+                    class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 rounded-full hover:bg-yellow-100 transition duration-150" aria-label="Fechar resultados">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <p class="font-bold text-yellow-800">Região não atendida por Representante.</p>
+            <p>Por favor, utilize o botão "Falar com Vendas" para entrar em contato direto com nossa equipe interna de vendas.</p>
+        </div>
+    `;
+    
+    if (resultsDisplay) {
+        resultsDisplay.innerHTML = html;
+    }
+}
+
+
+/**
+ * Função para fechar (limpar) a área de resultados da busca.
+ * Chamada pelo botão 'X' (fechar).
+ */
+function fecharResultados() {
+    const resultsDisplay = document.getElementById('search-results-display'); 
+    if (resultsDisplay) {
+        resultsDisplay.innerHTML = '';
+        console.log('Resultados da busca fechados.');
+    }
+}
+
+/**
+ * Funções de inicialização
+ */
+window.onload = function() {
+    // 1. Encontra o dropdown de estado
+    const selectEstado = document.getElementById('estado-select');
+    
+    // 2. Adiciona o event listener que atualiza o datalist quando o estado muda
+    if (selectEstado) {
+        selectEstado.addEventListener('change', function() {
+            populateMunicipiosDatalist(this.value);
+        });
+    }
+    
+    // 3. Popula (ou limpa) o datalist na carga inicial da página
+    populateMunicipiosDatalist(selectEstado ? selectEstado.value : '');
+};
     </script>
 
     <a href="https://wa.me/4133066500?text=Olá,%20estou%20mandando%20essa%20mensagem%20pelo%20site!" target="_blank"
