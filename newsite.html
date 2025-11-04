@@ -5,8 +5,11 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <link rel="icon" href="img/empresa-favicon.ico">
-    <title>Ditrator</title>
+    <title>DITRATOR - Distribuidora de Peças</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,63 +18,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style type="text/tailwindcss">
         @font-face {
-   
     font-family: 'gotham';
-    
-    
     src: url('./fonts/gothamrnd-light-webfont.woff2') format('woff2'),
          url('./fonts/gothamrnd-light-webfont.woff') format('woff');
-         
-    /* font-weight: 400; 
-    font-style: normal;
-    font-display: swap; */
 }
 
 @font-face {
     font-family: 'gotham-bold';
     src: url('./fonts/gothamrnd-light-webfont.woff2') format('woff2'),
          url('./fonts/gothamrnd-light-webfont.woff') format('woff');
-    /* font-weight: 800; 
-    font-style: normal;
-    font-display: swap; */
 }
         html{
             scroll-behavior: smooth;
         }
-
-        /* ------------------------------------------------------------------- */
-/* CSS para Transição de Página Suave (Fade Out/In) */
-/* ------------------------------------------------------------------- */
-
-/* 1. ESTADO INICIAL DA PÁGINA (Para transição na entrada) */
-/* Garante que o body possa ser animado e define a duração padrão de transição */
 body {
     opacity: 1;
     transition: opacity 0.3s ease-in-out; 
 }
-
-/* 2. ESTADO DE SAÍDA (O que acontece quando o usuário clica para sair) */
-/* A classe 'page-exit' será adicionada pelo JavaScript */
 body.page-exit {
-    opacity: 0; /* Torna a página transparente */
+    opacity: 0;
 }
 
-/* 3. ESTADO DE ENTRADA (O que acontece na página de destino ao ser carregada) */
-/* Use um keyframe para animar o corpo da página de opacidade 0 para 1 */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-/* Aplica a animação de fade-in no carregamento da página */
 body {
-    /* O navegador aplicará a transição 'page-exit' na saída e esta animação na entrada */
     animation: fadeIn 0.3s forwards; 
 }
-
-
-
-
         body {
             font-family: 'gotham', sans-serif;
             background-color: #f4f4f9;
@@ -137,38 +112,19 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    
-    /* ESSENCIAL: Permite que o pseudo-elemento seja posicionado em relação a esta div */
     position: relative; 
-    
-    /* Garante que o conteúdo dentro da div esteja acima da camada escura */
     z-index: 1; 
 }
-
-/* Pseudo-elemento para o overlay escuro e blur */
 .backgroundimg2::before {
-    content: ''; /* Conteúdo vazio para o pseudo-elemento */
-    
-    /* Posiciona o pseudo-elemento sobre toda a área da div pai */
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    
-    /* 1. EFEITO ESCURO */
-    /* Cor preta com 50% de opacidade. Ajuste o '0.5' para mais ou menos escuridão */
     background-color: rgba(44, 50, 60, 0.6); 
-    
-    /* 2. EFEITO BLUR */
-    /* Aplica um desfoque de 3px. Ajuste o valor para mais ou menos blur */
-    backdrop-filter: blur(3px); 
-    /* OU filter: blur(3px); (veja a nota abaixo) */
-    
-    /* Garante que esta camada fique abaixo do conteúdo normal da div mas acima do background */
     z-index: -1; 
 }
-
     </style>
 </head>
 
@@ -178,17 +134,13 @@ body {
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
                     <img alt="Ditrator Logo" class="h-12 w-auto mr-2" src="./img/logo_white1.png" />
-                    <!-- <span class="text-white text-xl font-bold">DITRATOR</span> -->
-                    <!-- <span class="text-gray-400 text-xs ml-2 mt-2 block">Distribuidor de Peças e Serviços</span> -->
                 </div>
                 <nav class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a class="nav-link nav-link-active" href="#">HOME</a>
-                        <a class="nav-link" href="./empresa.html">EMPRESA</a>
-                        <!-- <a class="nav-link" href="newsite.html#about">SOBRE NÓS</a> -->
-                        <a class="nav-link" href="newsite.html#catalog">CATÁLOGO</a>
-                        <a class="nav-link" href="newsite.html#contact">CONTATO</a>
-                        <!-- <a class="nav-link" href="#">CLIENTE</a> -->
+                        <a class="nav-link nav-link-active" href="newsite.html">HOME</a>
+                        <a class="nav-link" href="empresa.html">EMPRESA</a>
+                        <a class="nav-link" href="#catalog">CATÁLOGO</a>
+                        <a class="nav-link" href="#contact">CONTATO</a>
                     </div>
                 </nav>
                 <div class="md:hidden">
@@ -199,26 +151,23 @@ body {
             </div>
         </div>
         <div class="md:hidden hidden bg-gray-800" id="mobile-menu">
-            <a class="block nav-link px-4 py-2" href="#">HOME</a>
-            <a class="block nav-link nav-link-active px-4 py-2" href="#">EMPRESA</a>
-            <a class="block nav-link px-4 py-2" href="newsite.html#about">SOBRE NÓS</a>
-            <a class="block nav-link px-4 py-2" href="newsite.html#catalogo">CATÁLOGO</a>
-            <a class="block nav-link px-4 py-2" href="newsite.html#contact">CONTATO</a>
-            <!-- <a class="block nav-link px-4 py-2" href="#">CLIENTE</a> -->
+            <a class="block nav-link nav-link-active px-4 py-2" href="newsite.html">HOME</a>
+            <a class="block nav-link px-4 py-2" href="empresa.html">EMPRESA</a>
+            <a class="block nav-link px-4 py-2" href="#catalog">CATÁLOGO</a>
+            <a class="block nav-link px-4 py-2" href="#contact">CONTATO</a>
         </div>
     </header>
     <section class="hero-section backgroundimg2 pt-16">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-            <div class="relative w-full max-w-3xl mx-auto h-[400px] overflow-hidden rounded-lg shadow-xl" id="carousel">
-                <div class="carousel-item active">
+            <div class="relative w-full max-w-3xl mx-auto h-[250px] md:h-[400px] overflow-hidden rounded-lg shadow-xl"
+                id="carousel">
+                <div class="carousel-item active transform-gpu backface-hidden">
                     <img alt="Novidades Ditrator" class="w-full h-full object-cover"
                         src="./img/Carrossel (Boas-Vindas).jpg" />
                     <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
-                        <!-- <h1 class="text-3xl sm:text-4xl font-bold mb-2">NOVIDADES DITRATOR</h1>
-                        <p class="text-lg text-gray-200">Fique por dentro dos nossos lançamentos e promoções.</p> -->
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item transform-gpu backface-hidden">
                     <video autoplay loop muted playsinline alt="Filial nova em Cascavel"
                         class="w-full h-full object-cover" src="./img/Intro-Vídeo.mp4" />
                     <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
@@ -226,12 +175,10 @@ body {
                         <p class="text-lg text-gray-200">Nosso novo centro de distribuição para melhor atendê-lo.</p>
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item transform-gpu backface-hidden">
                     <img alt="Visite nosso Instagram" class="w-full h-full object-cover"
                         src="./img/Carrossel (Produtos).jpg" />
                     <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
-                        <!-- <h1 class="text-3xl sm:text-4xl font-bold mb-2">VISITE NOSSO INSTAGRAM</h1>
-                        <p class="text-lg text-gray-200">Siga @ditratoroficial e acompanhe nossas novidades!</p> -->
                     </div>
                 </div>
                 <button
@@ -245,12 +192,6 @@ body {
                     <span class="material-icons flex">chevron_right</span>
                 </button>
                 <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2" id="indicators">
-                    <button
-                        class="w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100 focus:outline-none indicator active-indicator"></button>
-                    <button
-                        class="w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100 focus:outline-none indicator"></button>
-                    <button
-                        class="w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100 focus:outline-none indicator"></button>
                 </div>
             </div>
         </div>
@@ -272,28 +213,6 @@ body {
                 <div class="md:w-1/2 grid grid-cols-1 gap-6">
                     <img alt="Visite nosso Instagram" class="w-full h-full rounded-md shadow-xl object-cover"
                         src="./img/Conheça Nossos Produtos (cinza).jpg" />
-                    <!-- <div class="card">
-                        <img alt="Peças para tratores agrícolas" class="w-auto h-56 object-cover"
-                            src="./img/Conheça Nossos Produtos.jpg" />
-                        <div class="p-4 card-bg text-white text-center">
-                            <p class="font-semibold">TESTE</p>
-                        </div>
-                    </div> -->
-                    <!-- 
-                    <div class="card">
-                        <img alt="Peças para motores diesel" class="w-full h-48 object-cover"
-                            src="./img/TRATORES (Conheça Nossos Produtos).jpg" />
-                        <div class="p-4 card-bg text-white text-center">
-                            <p class="font-semibold">TRATORES</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img alt="Peças para motores diesel" class="w-full h-48 object-cover"
-                            src="./img/MOTORES (Conheça Nossos Produtos).jpg" />
-                        <div class="p-4 card-bg text-white text-center">
-                            <p class="font-semibold">MOTORES</p>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -304,8 +223,7 @@ body {
             <div class="flex flex-col md:flex-row items-center">
                 <div class="w-full md:w-1/2 mb-8 md:mb-0">
                     <div class="relative w-full aspect-video rounded-md shadow-md overflow-hidden">
-                        <iframe src="https://www.youtube.com/embed/G_4sToEoCA4?autoplay=1&mute=1&controls=0&rel=0"
-                        
+                        <iframe src="https://www.youtube.com/embed/33AwmlkJtJ4?autoplay=1&mute=1&controls=0&rel=0"
                             title="ytb ditrator" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen class="absolute inset-0 w-full h-full">
@@ -331,7 +249,7 @@ body {
                 </div>
             </div>
         </div>
-    </section>   
+    </section>
     <a name="catalog"></a>
     <section class="py-12 header-bg text-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -353,65 +271,57 @@ body {
             </div>
         </div>
     </section>
-    <section class="py-16 bg-white text-gray-800">
+       <section class="py-16 bg-white text-gray-800">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row-reverse items-center">
                 
                 <div class="md:w-1/2 mb-8 md:mb-0 md:pl-12">
-                    <p class="section-sub-title text-gray-500">CONTATO</p> 
+                    <!-- <p class="section-sub-title text-gray-500">CONTATO</p>  -->
                     <h2 class="section-title text-gray-900">ENCONTRE UM REPRESENTANTE</h2> 
-                    <p class="text-gray-600 leading-relaxed mb-8">
+                    <!-- <p class="text-gray-600 leading-relaxed mb-8">
                         Selecione seu município para encontrar o representante mais próximo ou fale diretamente com nossa equipe de vendas interna.
-                    </p>
+                    </p> -->
 
-                    <div class="space-y-4">
-<div>
+<div class="space-y-4">
+    <!-- CAMPO 1: Seleção de Estado (Sem alteração) -->
+    <div>
         <label for="estado-select" class="block text-sm font-medium text-gray-700 mb-1">Selecione seu Estado</label>
         <select id="estado-select" name="estado"
                class="block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 appearance-none">
-           <option value="" disabled selected>Escolha um Estado...</option>
-
+            <option value="" disabled selected>Escolha um Estado...</option>
             <option value="PR">Paraná (PR)</option>
-
             <option value="RS">Rio Grande do Sul (RS)</option>
-
             <option value="SC">Santa Catarina (SC)</option>
-
-            <!-- Opção para o Fallback -->
-
             <option value="outros">Não encontrei minha região / Outras Regiões</option> 
         </select>
     </div>
 
-    <!-- CAMPO 2: Input de Texto com Datalist para Município (Este fica igual) -->
+    <!-- CAMPO 2: MUDADO DE <input> PARA <select> (para o Select2) -->
     <div>
-        <label for="municipio-input" class="block text-sm font-medium text-gray-700 mb-1">Digite ou selecione seu Município</label>
-        <input type="text" id="municipio-input" placeholder="Digite para autocompletar, ex: Curitiba (PR)"
-               class="block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-               list="municipio-suggestions">
-        
-        <datalist id="municipio-suggestions">
-            <!-- As opções serão adicionadas aqui pelo JavaScript -->
-        </datalist>
+        <label for="municipio-select" class="block text-sm font-medium text-gray-700 mb-1">Digite ou selecione seu Município</label>
+        <!-- O Select2 irá transformar este <select> em um campo de busca -->
+        <select id="municipio-select" name="municipio" 
+                class="block w-full" 
+                disabled> <!-- Começa desabilitado -->
+            <option value="">Primeiro, selecione um Estado...</option>
+        </select>
     </div>
+    <div id="search-results-display" class="mt-6">
 
-
-
-                        
-<div id="search-results-display" class="mt-6">
     <!-- O resultado do JavaScript será renderizado aqui -->
+
 </div>
-                        <div class="flex flex-col sm:flex-row gap-4 pt-2">
-                            <button type="button" onclick="buscarRepresentantes()" 
-                                    class="btn btn-primary">
-                                Buscar Representantes
-                            </button>
-                            
-                            <a href="https://ditrator.com.br/vendedores.html" class="btn btn-secondary" target="_blank">
-                                Falar com Vendas
-                            </a>
-                        </div>
-                    </div>
+    <!-- Botões (não mudam) -->
+    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+        <button type="button" onclick="buscarRepresentantes()" 
+                class="btn btn-primary">
+            Buscar Representantes
+        </button>
+        <a href="/pagina-vendedores" class="btn btn-secondary">
+            Falar com Vendas
+        </a>
+    </div>
+</div>
                 </div>
                 
                 <div class="md:w-1/2 rounded-lg overflow-hidden shadow-xl">
@@ -463,403 +373,10 @@ body {
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-6 text-center text-xs text-gray-500">
-                <p>© 2025 Ditrator. 0861143600100 Todos os direitos reservados. </p>
+                <p>© 2025 Ditrator. 08611463000100 Todos os direitos reservados. </p>
             </div>
         </div>
     </footer>
-    <script>
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        // Carousel Script
-        const carouselItems = document.querySelectorAll('.carousel-item');
-        const indicators = document.querySelectorAll('#indicators .indicator');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        let currentIndex = 0;
-        let intervalId;
-        function updateCarousel() {
-            carouselItems.forEach((item, index) => {
-                item.classList.toggle('active', index === currentIndex);
-            });
-            indicators.forEach((indicator, index) => {
-                indicator.classList.toggle('active-indicator', index === currentIndex);
-                indicator.classList.toggle('opacity-100', index === currentIndex);
-                indicator.classList.toggle('opacity-50', index !== currentIndex);
-            });
-        }
-        function showNext() {
-            currentIndex = (currentIndex + 1) % carouselItems.length;
-            updateCarousel();
-        }
-        function showPrev() {
-            currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
-            updateCarousel();
-        }
-        function startAutoplay() {
-            intervalId = setInterval(showNext, 5000); // Change slide every 5 seconds
-        }
-        function stopAutoplay() {
-            clearInterval(intervalId);
-        }
-        nextBtn.addEventListener('click', () => {
-            showNext();
-            stopAutoplay();
-            startAutoplay();
-        });
-        prevBtn.addEventListener('click', () => {
-            showPrev();
-            stopAutoplay();
-            startAutoplay();
-        });
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                currentIndex = index;
-                updateCarousel();
-                stopAutoplay();
-                startAutoplay();
-            });
-        });
-        // Initialize carousel
-        updateCarousel();
-        startAutoplay();
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // Seleciona todos os links '<a>' que têm um atributo 'href'
-            const links = document.querySelectorAll('a[href]');
-
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-
-                // Ignora links âncora (para deixar o scroll-behavior: smooth agir)
-                if (href.startsWith('#')) {
-                    return;
-                }
-
-                // Verifica se o link é interno (mesmo domínio ou caminho relativo)
-                // Isso é crucial para não interferir em links externos (YouTube, WhatsApp, etc.)
-                const isInternal = (link.hostname === window.location.hostname || link.hostname === '');
-
-                if (isInternal) {
-                    link.addEventListener('click', (event) => {
-
-                        // Impede a navegação instantânea padrão
-                        event.preventDefault();
-
-                        // Adiciona a classe que inicia o Fade Out (opacidade 0)
-                        document.body.classList.add('page-exit');
-
-                        // Espera o tempo da animação (300ms) e então navega
-                        // O tempo aqui (300) deve ser IGUAL à duração da transição no CSS
-                        setTimeout(() => {
-                            window.location.href = href;
-                        }, 300);
-                    });
-                }
-            });
-        });
-        /**
-/**
- * Dados dos Representantes.
- * Este objeto simula o mapeamento de municípios para seus representantes.
- * ATENÇÃO: Os chaves devem corresponder aos 'value' da tag <select> no index.html.
- */
-const REPRESENTANTES_DETALHES = {
-    // 4 no Paraná
-    'PR_KESLEY': { nome: 'Kesley (PR OESTE)', telefone: '(45) 99123-4567', email: 'kesley@exemplo.com.br' },
-    'PR_PAULO': { nome: 'Paulo (PR LESTE)', telefone: '(41) 98877-6655', email: 'paulo@exemplo.com.br' },
-    'PR_ANA': { nome: 'Ana (PR NORTE)', telefone: '(43) 97766-5544', email: 'ana@exemplo.com.br' },
-    'PR_LUCAS': { nome: 'Lucas (PR SUL)', telefone: '(42) 96655-4433', email: 'lucas@exemplo.com.br' },
-    // 2 no Rio Grande do Sul
-    'RS_MARCIA': { nome: 'Márcia (RS CAPITAL)', telefone: '(51) 95544-3322', email: 'marcia@exemplo.com.br' },
-    'RS_RENATO': { nome: 'Renato (RS INTERIOR)', telefone: '(53) 94433-2211', email: 'renato@exemplo.com.br' },
-    // 1 em Santa Catarina
-    'SC_GABRIELA': { nome: 'Gabriela (SC GERAL)', telefone: '(48) 93322-1100', email: 'gabriela@exemplo.com.br' },
-};
-
-
-/**
- * Mapeamento dos municípios para seus respectivos representantes.
- * Chave de busca: 'ESTADO_MUNICIPIO_NORMALIZADO'
- * Valor: 'ID_DO_REPRESENTANTE'
- * * EXEMPLOS (EXPANDA ESTA LISTA COM SEUS 600 MUNICÍPIOS!)
- */
-const MUNICIPIOS_MAP = {
-    // Paraná (PR)
-    'PR_cascavel': 'PR_KESLEY',
-    'PR_fozdoiguacu': 'PR_KESLEY',
-    'PR_toledo': 'PR_KESLEY',
-    'PR_maringa': 'PR_ANA',
-    'PR_londrina': 'PR_ANA',
-    'PR_curitiba': 'PR_PAULO',
-    'PR_pinhais': 'PR_PAULO',
-    'PR_saojosedospinhais': 'PR_PAULO',
-    'PR_weissopolis': 'PR_PAULO',
-    'PR_vargemgrande': 'PR_LUCAS',
-    
-    // Rio Grande do Sul (RS)
-    'RS_portoalegre': 'RS_MARCIA',
-    'RS_caxiasdosul': 'RS_RENATO',
-    'RS_canoas': 'RS_MARCIA',
-
-    // Santa Catarina (SC)
-    'SC_florianopolis': 'SC_GABRIELA',
-    'SC_joinville': 'SC_GABRIELA',
-    'SC_blumenau': 'SC_GABRIELA',
-    'SC_balneariocamboriu': 'SC_GABRIELA',
-};
-
-
-/**
- * Função utilitária para normalizar strings (remover acentos e caracteres especiais, e converter para minúsculas).
- * Essencial para que a busca funcione independentemente da digitação do usuário.
- */
-function normalizeString(str) {
-    // Remove espaços extras, converte para minúsculas, remove acentos e caracteres especiais.
-    return str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '');
-}
-
-/**
- * Função utilitária para limpar o número de telefone e formatá-lo para o link do WhatsApp (wa.me).
- */
-function cleanPhoneNumber(phone) {
-    // Remove todos os caracteres não numéricos.
-    const numericPhone = phone.replace(/\D/g, ''); 
-    
-    // Adiciona o DDI brasileiro (55) se ainda não estiver presente
-    if (!numericPhone.startsWith('55')) {
-        // Assume que o número começa com o DDD
-        return '55' + numericPhone; 
-    }
-    return numericPhone;
-}
-
-/**
- * Funções de Datalist (Autocompletar)
- * Popula a <datalist> dinamicamente com base no estado selecionado.
- */
-function populateMunicipiosDatalist(selectedEstado) {
-    const datalist = document.getElementById('municipio-suggestions');
-    if (!datalist) return;
-
-    // 1. Limpa as opções anteriores
-    datalist.innerHTML = '';
-
-    // 2. Limpa o campo de input do município quando o estado muda
-    const inputMunicipio = document.getElementById('municipio-input');
-    if (inputMunicipio) {
-        inputMunicipio.value = '';
-    }
-
-    // 3. Verifica se um estado válido (PR, RS, SC) foi selecionado
-    if (!selectedEstado || !['PR', 'RS', 'SC'].includes(selectedEstado)) {
-        console.log("Datalist de municípios limpa (Nenhum estado válido selecionado).");
-        return; // Não popula se for 'outros' ou vazio
-    }
-
-    const uniqueOptions = new Set();
-    const prefix = selectedEstado + '_'; // Ex: 'PR_'
-
-    // 4. Itera e filtra o mapa de municípios
-    Object.keys(MUNICIPIOS_MAP).forEach(key => {
-        // Verifica se a chave começa com o prefixo do estado (ex: 'PR_')
-        if (key.startsWith(prefix)) {
-            
-            // Extrai o nome normalizado (ex: 'curitiba' de 'PR_curitiba')
-            const mun_normalized = key.substring(prefix.length);
-            
-            // Converte o nome normalizado de volta para uma visualização amigável
-            const mun_readable = mun_normalized.charAt(0).toUpperCase() + mun_normalized.slice(1);
-            
-            // A opção que o usuário verá no dropdown (ex: "Curitiba")
-            const readableOption = mun_readable;
-
-            if (!uniqueOptions.has(readableOption)) {
-                const option = document.createElement('option');
-                // O valor é o que será colocado no campo de input.
-                option.value = readableOption; 
-                datalist.appendChild(option);
-                uniqueOptions.add(readableOption);
-            }
-        }
-    });
-    console.log(`Datalist de municípios populada com ${uniqueOptions.size} opções para ${selectedEstado}.`);
-}
-
-
-/**
- * Função principal para buscar representantes com base no ESTADO e MUNICÍPIO.
- */
-function buscarRepresentantes() {
-    // 1. Pega os elementos
-    const selectEstado = document.getElementById('estado-select');
-    const inputMunicipio = document.getElementById('municipio-input');
-
-    const estadoSelecionado = selectEstado ? selectEstado.value : '';
-    // Extrai o valor do campo de input, que pode ser digitado ou selecionado do datalist
-    let municipioDigitado = inputMunicipio ? inputMunicipio.value.trim() : ''; 
-    
-    const resultsDisplay = document.getElementById('search-results-display'); 
-    
-    // Limpa resultados anteriores
-    if (resultsDisplay) {
-        resultsDisplay.innerHTML = '';
-    }
-
-    // 2. Validação da Seleção de Estado
-    if (!estadoSelecionado) {
-        const msg = '<p class="text-red-600 font-semibold mt-4">Por favor, selecione seu Estado.</p>';
-        if (resultsDisplay) resultsDisplay.innerHTML = msg;
-        return;
-    }
-    
-    // 3. Fallback para "Outras Regiões"
-    if (estadoSelecionado === 'outros' || !['PR', 'RS', 'SC'].includes(estadoSelecionado)) {
-        return fallbackVendasInternas(resultsDisplay);
-    }
-    
-    // 4. Validação do Município para Regiões Atendidas
-    if (!municipioDigitado) {
-        const msg = '<p class="text-red-600 font-semibold mt-4">Por favor, digite ou selecione o nome do seu Município.</p>';
-        if (resultsDisplay) resultsDisplay.innerHTML = msg;
-        return;
-    }
-
-    // 5. Normaliza a chave de busca
-    // (O passo 5 anterior, que removia "(PR)", foi removido pois o datalist agora é filtrado)
-    const municipioNormalizado = normalizeString(municipioDigitado);
-    const chaveBusca = `${estadoSelecionado}_${municipioNormalizado}`;
-
-    // 6. Realiza a Busca
-    const idRepresentante = MUNICIPIOS_MAP[chaveBusca];
-    
-    if (idRepresentante) {
-        const representante = REPRESENTANTES_DETALHES[idRepresentante];
-
-        if (representante) {
-            console.log(`✅ Representante encontrado para ${municipioDigitado}/${estadoSelecionado}:`, representante);
-            
-            const whatsappLink = `https://wa.me/${cleanPhoneNumber(representante.telefone)}`;
-            
-            // Estrutura HTML para exibir o representante
-            const html = `
-                <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-500 rounded-lg shadow-md relative">
-                    <!-- BOTÃO DE FECHAR -->
-                    <button onclick="fecharResultados()" 
-                            class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 rounded-full hover:bg-blue-100 transition duration-150" aria-label="Fechar resultados">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-
-                    <p class="font-bold text-blue-700 text-lg mb-1">Seu Representante Comercial (${estadoSelecionado}):</p>
-                    <p class="text-gray-800">Nome: <span class="font-semibold">${representante.nome}</span></p>
-                    
-                    <!-- LINHA DO TELEFONE COM BOTÃO WHATSAPP -->
-                    <p class="text-gray-800 flex items-center gap-2">
-                        Telefone: <span class="font-semibold">${representante.telefone}</span>
-                        <a href="${whatsappLink}" target="_blank" title="Chamar no WhatsApp" 
-                           class="text-green-600 hover:text-green-700 transition duration-150 text-xl">
-                            <!-- Ícone do WhatsApp (Font Awesome) -->
-                            <i class="fa fa-whatsapp"></i>
-                        </a>
-                    </p>
-                    <p class="text-gray-800">Email: <a href="mailto:${representante.email}" class="text-blue-600 hover:underline">${representante.email}</a></p>
-                </div>
-            `;
-            
-            if (resultsDisplay) {
-                resultsDisplay.innerHTML = html;
-            }
-
-        } else {
-            // Município encontrado no mapa, mas ID de representante está errado (erro interno de dados)
-            return fallbackVendasInternas(resultsDisplay); 
-        }
-
-    } else {
-        // Município NÃO está na lista (ou digitado errado)
-        console.log(`⚠️ Município ${municipioDigitado}/${estadoSelecionado} não encontrado no mapa.`);
-        
-        const html = `
-            <div class="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded-lg text-yellow-700 shadow-md relative">
-                <button onclick="fecharResultados()" 
-                        class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 rounded-full hover:bg-yellow-100 transition duration-150" aria-label="Fechar resultados">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-                <p class="font-bold text-yellow-800">Não encontramos seu município.</p>
-                <p>Verifique a grafia ou utilize o botão "Falar com Vendas" para entrar em contato com nossa equipe.</p>
-            </div>
-        `;
-
-        if (resultsDisplay) {
-            resultsDisplay.innerHTML = html;
-        }
-    }
-}
-
-/**
- * Função de fallback para o contato interno, usada para estados não servidos 
- * ou quando o usuário seleciona "Outras Regiões".
- */
-function fallbackVendasInternas(resultsDisplay) {
-    console.log('⚠️ Região não atendida diretamente ou não selecionada. Direcionando para Vendas Internas.');
-        
-    const html = `
-        <div class="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded-lg text-yellow-700 shadow-md relative">
-            <!-- BOTÃO DE FECHAR -->
-            <button onclick="fecharResultados()" 
-                    class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 rounded-full hover:bg-yellow-100 transition duration-150" aria-label="Fechar resultados">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-            <p class="font-bold text-yellow-800">Região não atendida por Representante.</p>
-            <p>Por favor, utilize o botão "Falar com Vendas" para entrar em contato direto com nossa equipe interna de vendas.</p>
-        </div>
-    `;
-    
-    if (resultsDisplay) {
-        resultsDisplay.innerHTML = html;
-    }
-}
-
-
-/**
- * Função para fechar (limpar) a área de resultados da busca.
- * Chamada pelo botão 'X' (fechar).
- */
-function fecharResultados() {
-    const resultsDisplay = document.getElementById('search-results-display'); 
-    if (resultsDisplay) {
-        resultsDisplay.innerHTML = '';
-        console.log('Resultados da busca fechados.');
-    }
-}
-
-/**
- * Funções de inicialização
- */
-window.onload = function() {
-    // 1. Encontra o dropdown de estado
-    const selectEstado = document.getElementById('estado-select');
-    
-    // 2. Adiciona o event listener que atualiza o datalist quando o estado muda
-    if (selectEstado) {
-        selectEstado.addEventListener('change', function() {
-            populateMunicipiosDatalist(this.value);
-        });
-    }
-    
-    // 3. Popula (ou limpa) o datalist na carga inicial da página
-    populateMunicipiosDatalist(selectEstado ? selectEstado.value : '');
-};
-    </script>
-
     <a href="https://wa.me/4133066500?text=Olá,%20estou%20mandando%20essa%20mensagem%20pelo%20site!" target="_blank"
         class="fixed bottom-6 right-6 z-50 rounded-full shadow-lg 
            w-14 h-14 flex items-center justify-center 
@@ -871,5 +388,5 @@ window.onload = function() {
     </a>
 
 </body>
-
+<script src="./js/script.js"></script>
 </html>

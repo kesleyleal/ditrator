@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Ditrator - Empresa</title>
+  <title>DITRATOR - Distribuidora de Peças</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,48 +20,31 @@
     
     src: url('./fonts/gothamrnd-light-webfont.woff2') format('woff2'),
          url('./fonts/gothamrnd-light-webfont.woff') format('woff');
-         
-    /* font-weight: 200; 
-    font-style: normal;
-    font-display: swap; */
 }
 
 @font-face {
     font-family: 'gotham-bold';
     src: url('./fonts/gothamrnd-light-webfont.woff2') format('woff2'),
          url('./fonts/gothamrnd-light-webfont.woff') format('woff');
-    /* font-weight: 700; 
-    font-style: normal;
-    font-display: swap; */
+
 }
 
-        /* ------------------------------------------------------------------- */
-/* CSS para Transição de Página Suave (Fade Out/In) */
-/* ------------------------------------------------------------------- */
-
-/* 1. ESTADO INICIAL DA PÁGINA (Para transição na entrada) */
-/* Garante que o body possa ser animado e define a duração padrão de transição */
 body {
     opacity: 1;
     transition: opacity 0.3s ease-in-out; 
 }
 
-/* 2. ESTADO DE SAÍDA (O que acontece quando o usuário clica para sair) */
-/* A classe 'page-exit' será adicionada pelo JavaScript */
 body.page-exit {
-    opacity: 0; /* Torna a página transparente */
+    opacity: 0;
 }
 
-/* 3. ESTADO DE ENTRADA (O que acontece na página de destino ao ser carregada) */
-/* Use um keyframe para animar o corpo da página de opacidade 0 para 1 */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-/* Aplica a animação de fade-in no carregamento da página */
 body {
-    /* O navegador aplicará a transição 'page-exit' na saída e esta animação na entrada */
+
     animation: fadeIn 0.3s forwards; 
 }
 
@@ -133,17 +116,13 @@ body {
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center">
           <img alt="Ditrator Logo" class="h-12 w-auto mr-2" src="./img/logo_white1.png" />
-          <!-- <span class="text-white text-xl font-bold">DITRATOR</span>
-<span class="text-gray-400 text-xs ml-2 mt-2 block">Distribuidor de Peças e Serviços</span> -->
         </div>
         <nav class="hidden md:block">
           <div class="ml-10 flex items-baseline space-x-4">
-            <a class="nav-link" href="./newsite.html">HOME</a>
-            <a class="nav-link nav-link-active" href="#">EMPRESA</a>
-            <!-- <a class="nav-link" href="newsite.html#about">SOBRE NÓS</a> -->
-            <a class="nav-link" href="newsite.html#catalog">CATÁLOGO</a>
-            <a class="nav-link" href="empresa.html#contact">CONTATO</a>
-            <!-- <a class="nav-link" href="#">CLIENTE</a> -->
+            <a class="nav-link" href="newsite.html">HOME</a>
+            <a class="nav-link nav-link-active" href="empresa.html">EMPRESA</a>
+            <a class="nav-link" href="newsite.html">CATÁLOGO</a>
+            <a class="nav-link" href="#contact">CONTATO</a>
           </div>
         </nav>
         <div class="md:hidden">
@@ -154,12 +133,10 @@ body {
       </div>
     </div>
     <div class="md:hidden hidden bg-gray-800" id="mobile-menu">
-      <a class="block nav-link px-4 py-2" href="#">HOME</a>
-      <a class="block nav-link nav-link-active px-4 py-2" href="#">EMPRESA</a>
-      <!-- <a class="block nav-link px-4 py-2" href="newsite.html#about">SOBRE NÓS</a> -->
-      <a class="block nav-link px-4 py-2" href="newsite.html#catalogo">CATÁLOGO</a>
-      <a class="block nav-link px-4 py-2" href="empresa.html#contact">CONTATO</a>
-      <!-- <a class="block nav-link px-4 py-2" href="#">CLIENTE</a> -->
+      <a class="block nav-link px-4 py-2" href="/">HOME</a>
+      <a class="block nav-link nav-link-active px-4 py-2" href="/empresa">EMPRESA</a>
+      <a class="block nav-link px-4 py-2" href="/#catalog">CATÁLOGO</a>
+      <a class="block nav-link px-4 py-2" href="#contact">CONTATO</a>
     </div>
   </header>
   <main class="pt-16">
@@ -246,8 +223,7 @@ body {
             </div>
           </div>
           <div class="card">
-            <img alt="Fachada da filial de Curitiba" class="w-full h-56 object-cover"
-              src="./img/2 - Chapecó-SC (ajustado).jpg" />
+            <img alt="Fachada da filial de Curitiba" class="w-full h-56 object-cover" src="./img/2 - Chapecó-SC (ajustado).jpg" />
             <div class="p-6">
               <h3 class="text-xl font-semibold text-gray-800 mb-2">Chapecó - SC</h3>
               <p class="text-gray-600 text-sm mb-1"><span
@@ -305,7 +281,7 @@ body {
         </div>
       </div>
       <div class="border-t border-gray-700 mt-8 pt-6 text-center text-xs text-gray-500">
-        <p>© 2025 Ditrator. 0861143600100 Todos os direitos reservados. </p>
+        <p>© 2025 Ditrator. 08611463000100 Todos os direitos reservados. </p>
       </div>
     </div>
   </footer>
@@ -317,32 +293,19 @@ body {
     });
 
     document.addEventListener('DOMContentLoaded', () => {
-      // Seleciona todos os links '<a>' que têm um atributo 'href'
       const links = document.querySelectorAll('a[href]');
 
       links.forEach(link => {
         const href = link.getAttribute('href');
-
-        // Ignora links âncora (para deixar o scroll-behavior: smooth agir)
         if (href.startsWith('#')) {
           return;
         }
-
-        // Verifica se o link é interno (mesmo domínio ou caminho relativo)
-        // Isso é crucial para não interferir em links externos (YouTube, WhatsApp, etc.)
         const isInternal = (link.hostname === window.location.hostname || link.hostname === '');
 
         if (isInternal) {
           link.addEventListener('click', (event) => {
-
-            // Impede a navegação instantânea padrão
             event.preventDefault();
-
-            // Adiciona a classe que inicia o Fade Out (opacidade 0)
             document.body.classList.add('page-exit');
-
-            // Espera o tempo da animação (300ms) e então navega
-            // O tempo aqui (300) deve ser IGUAL à duração da transição no CSS
             setTimeout(() => {
               window.location.href = href;
             }, 300);

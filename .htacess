@@ -1,0 +1,24 @@
+# --- REGRAS BÁSICAS DE REESCRITA ---
+RewriteEngine On
+RewriteBase /
+
+# 1. FORÇA A REMOÇÃO DE index.html DA URL (Redirect Externo)
+# Garante que a raiz seja sempre limpa: site.com.br/
+RewriteCond %{THE_REQUEST} /index\.html
+RewriteRule ^(.*)index\.html$ /$1 [R=301,L]
+
+# 2. REMOVE A EXTENSÃO .html (Redirect Externo)
+# Se alguém digitar site.com.br/empresa.html, redireciona para site.com.br/empresa
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html [NC]
+RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+
+# 3. MAPEAMENTO INTERNO (Rewrite Interno)
+# Se o arquivo não existir (!-f) e não for um diretório (!-d), 
+# adicione internamente a extensão .html. Esta regra resolve o 404.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# 4. GARANTE HTTPS (Recomendado)
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
