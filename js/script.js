@@ -81,6 +81,11 @@
  * Lógica para a busca de representantes por Estado + Município.
  * Usa Select2 para um dropdown de municípios pesquisável.
  *
+ * CORREÇÃO: Lista TODOS os municípios de um estado,
+ * independentemente de terem um representante ("EM BRANCO") ou não.
+ * ATUALIZAÇÃO: Adiciona classes de TEMA ESCURO na caixa de resultados.
+ */
+
 // --- 1. BASE DE DADOS (Representantes, Mapeamento de Municípios, Lista Completa) ---
 
 /**
@@ -109,7 +114,7 @@ const REPRESENTANTES_MAP = {
         email: 'tidyvendas@gmail.com',
     },
 
-    // --- Representantes de Outros Estados ---
+    // --- Representantes de Outros Estados (Mantidos para Sul) ---
     'rep_sc_ana': {
         nome: 'Ana (SC)',
         telefone: '(48) 99999-0005',
@@ -368,14 +373,12 @@ const MUNICIPIOS_MAP = {
     'florianópolis (sc)': 'rep_sc_ana',
     'joinville (sc)': 'rep_sc_ana',
     'blumenau (sc)': 'rep_sc_ana',
-    // ... (Adicionar TODOS os municípios de SC)
 
     // --- Rio Grande do Sul (RS) ---
     'porto alegre (rs)': 'rep_rs_carlos',
     'canoas (rs)': 'rep_rs_carlos',
     'caxias do sul (rs)': 'rep_rs_bia',
     'passo fundo (rs)': 'rep_rs_bia',
-    // ... (Adicionar TODOS os municípios de RS)
 };
 
 /**
@@ -389,10 +392,10 @@ const ALL_MUNICIPIOS_BY_STATE = {
         'Agudos do Sul (PR)',
         'Almirante Tamandaré (PR)',
         'Altamira do Paraná (PR)',
-        'Altania (PR)', // Mesmo que "EM BRANCO", listamos
+        'Altania (PR)',
         'Alto Paraná (PR)',
         'Alto Piquiri (PR)',
-        'Altônia (PR)', // Adicionado
+        'Altônia (PR)',
         'Alvorada do Sul (PR)',
         'Amaporã (PR)',
         'Ampere (PR)',
@@ -420,7 +423,7 @@ const ALL_MUNICIPIOS_BY_STATE = {
         'Bela Vista da Caroba (PR)',
         'Bela Vista do Paraíso (PR)',
         'Bituruna (PR)',
-        'Boa Esperança (PR)', // Corrigido
+        'Boa Esperança (PR)',
         'Boa Esperança do Iguaçú (PR)',
         'Boa Ventura do São Roque (PR)',
         'Boa Vista da Aparecida (PR)',
@@ -916,23 +919,25 @@ function buscarRepresentantes() {
     const estadoValor = estadoSelect.value;
 
     fecharResultados();
-    resultsDiv.className = 'mt-6 relative p-4 border rounded-lg shadow-md bg-gray-50';
+    // ATUALIZAÇÃO: Adiciona classes de TEMA ESCURO
+    resultsDiv.className = 'mt-6 relative p-4 border rounded-lg shadow-md dark-results-box';
 
     // --- Validação de Entrada ---
     if (estadoValor === "outros") {
         resultsDiv.innerHTML = `
-            <button onclick="fecharResultados()" class="absolute top-2 right-3 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">Equipe Interna de Vendas</h3>
-            <p class="text-gray-600">Para a sua região, por favor, entre em contato diretamente com nossa equipe interna de vendas.</p>
+            <button onclick="fecharResultados()" class="absolute top-2 right-3 text-2xl font-bold close-btn">&times;</button>
+            <h3 class="text-xl font-semibold mb-2">Equipe Interna de Vendas</h3>
+            <p>Para a sua região, por favor, entre em contato diretamente com nossa equipe interna de vendas.</p>
         `;
         return;
     }
 
     if (!estadoValor || !municipioValor) {
-        resultsDiv.className = 'mt-6 relative p-4 border border-red-300 bg-red-50 rounded-lg shadow-md'; 
+        // ATUALIZAÇÃO: Estilo de erro (mantido, mas agora no tema escuro)
+        resultsDiv.className = 'mt-6 relative p-4 border border-red-500 bg-red-900 bg-opacity-30 text-red-200 rounded-lg shadow-md'; 
         resultsDiv.innerHTML = `
-            <button onclick="fecharResultados()" class="absolute top-2 right-3 text-red-600 hover:text-red-800 text-2xl font-bold">&times;</button>
-            <p class="font-medium text-red-700">Por favor, selecione um Estado e um Município para realizar a busca.</p>
+            <button onclick="fecharResultados()" class="absolute top-2 right-3 text-red-300 hover:text-red-100 text-2xl font-bold">&times;</button>
+            <p class="font-medium">Por favor, selecione um Estado e um Município para realizar a busca.</p>
         `;
         return;
     }
@@ -955,16 +960,16 @@ function buscarRepresentantes() {
         const whatsappLink = `https://wa.me/${telefoneLimpo}?text=Olá, ${representante.nome.split(' ')[0]}. Encontrei seu contato no site.`;
 
         resultsDiv.innerHTML = `
-            <button onclick="fecharResultados()" class="absolute top-2 right-3 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
-            <h3 class="text-xl font-semibold text-gray-800 mb-3">Representante Encontrado:</h3>
+            <button onclick="fecharResultados()" class="absolute top-2 right-3 text-2xl font-bold close-btn">&times;</button>
+            <h3 class="text-xl font-semibold mb-3">Representante Encontrado:</h3>
             <div class="space-y-2">
                 <p><strong>Nome:</strong> ${representante.nome}</p>
                 <div class="flex items-center gap-3">
                     <p><strong>Telefone:</strong> ${representante.telefone}</p>
                     <a href="${whatsappLink}" target="_blank" 
-                       class="text-green-600 hover:text-green-800 transition-colors duration-200" 
+                       class="text-green-500 hover:text-green-400 transition-colors duration-200" 
                        title="Abrir no WhatsApp">
-                        <i class="fa fa-whatsapp fa-lg"></i>
+                        <i class="fa-brands fa-whatsapp fa-lg"></i>
                     </a>
                 </div>
                 <p><strong>Email:</strong> ${representante.email}</p>
@@ -973,10 +978,10 @@ function buscarRepresentantes() {
     } else {
         // Caso: Município não encontrado (cai aqui se a cidade foi omitida - "EM BRANCO")
         resultsDiv.innerHTML = `
-            <button onclick="fecharResultados()" class="absolute top-2 right-3 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">Equipe Interna de Vendas Ditrator</h3>
-            <p class="text-gray-600">Não encontramos um representante específico para <strong>${municipioValor}</strong>.</p>
-            <p class="text-gray-600 mt-2">Para a sua região, por favor, entre em contato com nossa equipe interna de vendas.</p>
+            <button onclick="fecharResultados()" class="absolute top-2 right-3 text-2xl font-bold close-btn">&times;</button>
+            <h3 class="text-xl font-semibold mb-2">Equipe Interna de Vendas Ditrator</h3>
+            <p>Não encontramos um representante específico para <strong>${municipioValor}</strong>.</p>
+            <p class="mt-2">Para a sua região, por favor, entre em contato com nossa equipe interna de vendas para assistência.</p>
         `;
     }
 }

@@ -2,112 +2,214 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>DITRATOR - Distribuidora de Peças</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style type="text/tailwindcss">
-    @font-face {
-   
-    font-family: 'gotham';
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link rel="icon" href="img/empresa-favicon.ico">
+    <title>DITRATOR - Distribuidora de Peças</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- ATUALIZAÇÃO: Font Awesome 6.x (v4.7.0 é muito antiga e 'fa-brands' pode não funcionar) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJdZ6g+4G3S7E6sDq7v4pQ4Mv+9bMh7uYc/2I7D95A/4E2Gz/W2G4pL+9wL+1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-    
-    src: url('./fonts/gothamrnd-light-webfont.woff2') format('woff2'),
-         url('./fonts/gothamrnd-light-webfont.woff') format('woff');
-}
+    <style type="text/tailwindcss">
+        @font-face {
+            font-family: 'gotham';
+            src: url('./fonts/gothamrnd-light-webfont.woff2') format('woff2'),
+                 url('./fonts/gothamrnd-light-webfont.woff') format('woff');
+        }
 
-@font-face {
-    font-family: 'gotham-bold';
-    src: url('./fonts/gothamrnd-light-webfont.woff2') format('woff2'),
-         url('./fonts/gothamrnd-light-webfont.woff') format('woff');
-
-}
-
-body {
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out; 
-}
-
-body.page-exit {
-    opacity: 0;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-body {
-
-    animation: fadeIn 0.3s forwards; 
-}
-
-
-
+        @font-face {
+            font-family: 'gotham-bold';
+            src: url('./fonts/gothamrnd-light-webfont.woff2') format('woff2'),
+                 url('./fonts/gothamrnd-light-webfont.woff') format('woff');
+            /* Nota: Você está usando a fonte 'light' para o 'bold'. Isso deve ser corrigido se você tiver o arquivo bold. */
+        }
+        
         html{
             scroll-behavior: smooth;
         }
+        
+        /* Animações de página (Mantidas) */
+        body {
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out; 
+        }
+        body.page-exit {
+            opacity: 0;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        body {
+            animation: fadeIn 0.3s forwards; 
+        }
+        
+        /* Estilos Globais (Mantidos) */
         body {
             font-family: 'gotham', sans-serif;
             background-color: #f4f4f9;
         }
-    .header-bg {
-      background-color: #2c323c;;
-    }
+        
+        /* --- CLASSES DE COMPONENTES (Mantidas) --- */
+        .header-bg {
+            background-color: #2c323c;
+        }
+        .catalog-bg{
+            background-color: #36434e;
+        }
         .nav-link {
             @apply text-white hover:text-[#FF6750] px-3 py-2 rounded-md text-sm font-bold;
         }
-    .nav-link-active {
-      @apply text-[#FF6750];
-    }
-    .page-title-section {
-      background-color: #2c3e50;
-      color: white;
-    }
-    .section-title {
-      @apply text-3xl font-extrabold mb-4;
-    }
-    .card {
-      @apply bg-white rounded-lg shadow-lg overflow-hidden;
-    }
+        .nav-link-active {
+            @apply text-[#FF6750];
+        }
+        .hero-section {
+            background-color: #36434e;
+            color: white;
+        }
+        .section-title {
+            @apply text-3xl font-extrabold mb-4;
+        }
+        .section-sub-title {
+            @apply text-sm mb-1 font-semibold;
+        }
+        .card {
+            @apply bg-white rounded-lg shadow-lg overflow-hidden;
+        }
         .btn {
             @apply px-6 py-3 rounded-md font-semibold shadow-md transition duration-300;
         }
         .btn-primary {
             @apply bg-[#FF6750] text-white hover:text-black hover:bg-[#fff];
         }
-    .btn-secondary {
-      @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
-    }
-    .btn-outline {
-      @apply border border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white;
-    }
+        .btn-secondary {
+            /* ATUALIZADO: Botão secundário para fundo escuro (como na sua imagem) */
+            @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
+        }
+        .btn-outline {
+            @apply border border-gray-600 text-gray-600 hover:bg-[#2c323c] hover:text-white;
+        }
         .footer-bg {
             background-color: #252832;
             color: #d1d5db;
         }
-                .prod-bg{
-            background-color: #e5e4e4;
+        .card-bg{
+            background-color: #005da6;
         }
-                .about-bg{
+        .about-bg{
             background-color: #cbccce;
         }
-    .icon-text-container {
-      @apply flex items-center space-x-2 text-sm;
-    }
-    .backgroundimg{
-      background-image: url(./img/BG\ Cabeçalho\ \(EMPRESA\)\ 2.jpg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-  </style>
+        .prod-bg{
+            background-color: #e5e4e4;
+        }
+        .icon-text-container {
+            @apply flex items-center space-x-2 text-sm;
+        }
+        .carousel-item {
+            @apply absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out;
+        }
+        .carousel-item.active {
+            @apply opacity-100;
+        }
+        .backgroundimg2 {
+            background-image: url(./img/vlad-stawizki-CQbaooHFSWQ-unsplash.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative; 
+            z-index: 1; 
+        }
+        .backgroundimg2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(44, 50, 60, 0.6); 
+            z-index: -1; 
+        }
+
+        /* * --- NOVAS REGRAS (TEMA ESCURO PARA SEÇÃO DE BUSCA) ---
+         * Aplicadas a qualquer <select> ou <input> dentro de um 
+         * elemento com a classe .header-bg (que é a sua cor #2c323c)
+         */
+
+        /* 1. Estiliza o <select> do ESTADO (que não é Select2) */
+        .header-bg select {
+            @apply bg-gray-700 border-gray-600 text-white;
+        }
+        
+        /* 2. Estiliza o <input> do MUNICÍPIO (placeholder do Select2) */
+        .header-bg input {
+             @apply bg-gray-700 border-gray-600 text-white;
+        }
+
+        /* --- 3. TEMA ESCURO PARA O SELECT2 (MUNICÍPIOS) --- */
+        
+        /* A caixa de seleção (fechada) */
+        .header-bg .select2-container--default .select2-selection--single {
+            @apply bg-gray-700 border-gray-600 h-12 flex items-center;
+        }
+
+        /* O texto dentro da caixa (fechada) */
+        .header-bg .select2-container--default .select2-selection--single .select2-selection__rendered {
+            @apply text-gray-100 pl-3; 
+        }
+
+        /* A seta do dropdown */
+        .header-bg .select2-container--default .select2-selection--single .select2-selection__arrow b {
+            @apply border-t-gray-300;
+            top: 60%;
+        }
+        
+        /* O painel do dropdown (quando aberto) - (GLOBAL) */
+        /* Aplicamos globalmente para que o dropdown apareça escuro mesmo fora da seção */
+        .select2-dropdown {
+            @apply bg-gray-800 border-gray-600 shadow-xl;
+        }
+
+        /* O campo de busca DENTRO do dropdown */
+        .select2-search--dropdown .select2-search__field {
+            @apply bg-gray-700 text-white border-gray-600;
+        }
+
+        /* As opções na lista */
+        .select2-results__option {
+            @apply text-gray-300;
+        }
+
+        /* A opção em destaque (hover) */
+        .select2-results__option--highlighted {
+            @apply bg-blue-600 text-white;
+        }
+
+        /* A opção selecionada */
+        .select2-results__option[aria-selected=true] {
+            @apply bg-gray-600 text-white;
+        }
+
+        /* --- 4. TEMA ESCURO PARA A CAIXA DE RESULTADOS (JS) --- */
+        /* O JS adiciona a classe .dark-results-box */
+        .dark-results-box {
+            @apply bg-gray-700 border-gray-600 text-gray-200;
+        }
+        .dark-results-box h3 {
+            @apply text-white;
+        }
+        /* Botão de fechar (X) */
+        .dark-results-box .close-btn {
+            @apply text-gray-400 hover:text-white;
+        }
+    </style>
 </head>
 
 <body>
@@ -321,7 +423,7 @@ body {
            transition duration-300 ease-in-out transform hover:scale-110" style="background-color: #25D366;"
     aria-label="Fale conosco pelo WhatsApp">
 
-    <i class="fa fa-whatsapp text-white text-3xl"></i>
+    <i class="fa-brands fa-whatsapp text-white text-3xl"></i>
 
   </a>
 

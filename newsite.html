@@ -15,44 +15,55 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- ATUALIZAÇÃO: Font Awesome 6.x (v4.7.0 é muito antiga e 'fa-brands' pode não funcionar) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJdZ6g+4G3S7E6sDq7v4pQ4Mv+9bMh7uYc/2I7D95A/4E2Gz/W2G4pL+9wL+1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <style type="text/tailwindcss">
         @font-face {
-    font-family: 'gotham';
-    src: url('./fonts/gothamrnd-light-webfont.woff2') format('woff2'),
-         url('./fonts/gothamrnd-light-webfont.woff') format('woff');
-}
+            font-family: 'gotham';
+            src: url('./fonts/gothamrnd-light-webfont.woff2') format('woff2'),
+                 url('./fonts/gothamrnd-light-webfont.woff') format('woff');
+        }
 
-@font-face {
-    font-family: 'gotham-bold';
-    src: url('./fonts/gothamrnd-light-webfont.woff2') format('woff2'),
-         url('./fonts/gothamrnd-light-webfont.woff') format('woff');
-}
+        @font-face {
+            font-family: 'gotham-bold';
+            src: url('./fonts/gothamrnd-light-webfont.woff2') format('woff2'),
+                 url('./fonts/gothamrnd-light-webfont.woff') format('woff');
+            /* Nota: Você está usando a fonte 'light' para o 'bold'. Isso deve ser corrigido se você tiver o arquivo bold. */
+        }
+        
         html{
             scroll-behavior: smooth;
         }
-body {
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out; 
-}
-body.page-exit {
-    opacity: 0;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-body {
-    animation: fadeIn 0.3s forwards; 
-}
+        
+        /* Animações de página (Mantidas) */
+        body {
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out; 
+        }
+        body.page-exit {
+            opacity: 0;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        body {
+            animation: fadeIn 0.3s forwards; 
+        }
+        
+        /* Estilos Globais (Mantidos) */
         body {
             font-family: 'gotham', sans-serif;
             background-color: #f4f4f9;
         }
+        
+        /* --- CLASSES DE COMPONENTES (Mantidas) --- */
         .header-bg {
             background-color: #2c323c;
+        }
+        .catalog-bg{
+            background-color: #36434e;
         }
         .nav-link {
             @apply text-white hover:text-[#FF6750] px-3 py-2 rounded-md text-sm font-bold;
@@ -80,6 +91,7 @@ body {
             @apply bg-[#FF6750] text-white hover:text-black hover:bg-[#fff];
         }
         .btn-secondary {
+            /* ATUALIZADO: Botão secundário para fundo escuro (como na sua imagem) */
             @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
         }
         .btn-outline {
@@ -107,24 +119,96 @@ body {
         .carousel-item.active {
             @apply opacity-100;
         }
-.backgroundimg2 {
-    background-image: url(./img/vlad-stawizki-CQbaooHFSWQ-unsplash.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative; 
-    z-index: 1; 
-}
-.backgroundimg2::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(44, 50, 60, 0.6); 
-    z-index: -1; 
-}
+        .backgroundimg2 {
+            background-image: url(./img/vlad-stawizki-CQbaooHFSWQ-unsplash.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative; 
+            z-index: 1; 
+        }
+        .backgroundimg2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(44, 50, 60, 0.6); 
+            z-index: -1; 
+        }
+
+        /* * --- NOVAS REGRAS (TEMA ESCURO PARA SEÇÃO DE BUSCA) ---
+         * Aplicadas a qualquer <select> ou <input> dentro de um 
+         * elemento com a classe .header-bg (que é a sua cor #2c323c)
+         */
+
+        /* 1. Estiliza o <select> do ESTADO (que não é Select2) */
+        .header-bg select {
+            @apply bg-gray-700 border-gray-600 text-white;
+        }
+        
+        /* 2. Estiliza o <input> do MUNICÍPIO (placeholder do Select2) */
+        .header-bg input {
+             @apply bg-gray-700 border-gray-600 text-white;
+        }
+
+        /* --- 3. TEMA ESCURO PARA O SELECT2 (MUNICÍPIOS) --- */
+        
+        /* A caixa de seleção (fechada) */
+        .header-bg .select2-container--default .select2-selection--single {
+            @apply bg-gray-700 border-gray-600 h-12 flex items-center;
+        }
+
+        /* O texto dentro da caixa (fechada) */
+        .header-bg .select2-container--default .select2-selection--single .select2-selection__rendered {
+            @apply text-gray-100 pl-3; 
+        }
+
+        /* A seta do dropdown */
+        .header-bg .select2-container--default .select2-selection--single .select2-selection__arrow b {
+            @apply border-t-gray-300;
+            top: 60%;
+        }
+        
+        /* O painel do dropdown (quando aberto) - (GLOBAL) */
+        /* Aplicamos globalmente para que o dropdown apareça escuro mesmo fora da seção */
+        .select2-dropdown {
+            @apply bg-gray-800 border-gray-600 shadow-xl;
+        }
+
+        /* O campo de busca DENTRO do dropdown */
+        .select2-search--dropdown .select2-search__field {
+            @apply bg-gray-700 text-white border-gray-600;
+        }
+
+        /* As opções na lista */
+        .select2-results__option {
+            @apply text-gray-300;
+        }
+
+        /* A opção em destaque (hover) */
+        .select2-results__option--highlighted {
+            @apply bg-blue-600 text-white;
+        }
+
+        /* A opção selecionada */
+        .select2-results__option[aria-selected=true] {
+            @apply bg-gray-600 text-white;
+        }
+
+        /* --- 4. TEMA ESCURO PARA A CAIXA DE RESULTADOS (JS) --- */
+        /* O JS adiciona a classe .dark-results-box */
+        .dark-results-box {
+            @apply bg-gray-700 border-gray-600 text-gray-200;
+        }
+        .dark-results-box h3 {
+            @apply text-white;
+        }
+        /* Botão de fechar (X) */
+        .dark-results-box .close-btn {
+            @apply text-gray-400 hover:text-white;
+        }
     </style>
 </head>
 
@@ -248,10 +332,10 @@ body {
                             class="btn btn-outline">SAIBA MAIS</button></a>
                 </div>
             </div>
+            <a name="catalog"></a>
         </div>
     </section>
-    <a name="catalog"></a>
-    <section class="py-12 header-bg text-white">
+    <section class="py-12 catalog-bg text-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-8 md:mb-0 md:pr-12">
@@ -269,15 +353,16 @@ body {
                         src="./img/Catálogo Eletrônico.jpg" />
                 </div>
             </div>
+                    <a name="contact"></a>
         </div>
     </section>
-       <section class="py-16 bg-white text-gray-800">
+       <section class="py-16 header-bg text-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row-reverse items-center">
                 
                 <div class="md:w-1/2 mb-8 md:mb-0 md:pl-12">
                     <!-- <p class="section-sub-title text-gray-500">CONTATO</p>  -->
-                    <h2 class="section-title text-gray-900">ENCONTRE UM REPRESENTANTE</h2> 
+                    <h2 class="section-title text-white-900">ENCONTRE UM REPRESENTANTE</h2> 
                     <!-- <p class="text-gray-600 leading-relaxed mb-8">
                         Selecione seu município para encontrar o representante mais próximo ou fale diretamente com nossa equipe de vendas interna.
                     </p> -->
@@ -285,7 +370,7 @@ body {
 <div class="space-y-4">
     <!-- CAMPO 1: Seleção de Estado (Sem alteração) -->
     <div>
-        <label for="estado-select" class="block text-sm font-medium text-gray-700 mb-1">Selecione seu Estado</label>
+        <label for="estado-select" class="block text-sm font-medium text-white mb-1">Selecione seu Estado</label>
         <select id="estado-select" name="estado"
                class="block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 appearance-none">
             <option value="" disabled selected>Escolha um Estado...</option>
@@ -298,7 +383,7 @@ body {
 
     <!-- CAMPO 2: MUDADO DE <input> PARA <select> (para o Select2) -->
     <div>
-        <label for="municipio-select" class="block text-sm font-medium text-gray-700 mb-1">Digite ou selecione seu Município</label>
+        <label for="municipio-select" class="block text-sm font-medium text-white-700 mb-1">Digite ou selecione seu Município</label>
         <!-- O Select2 irá transformar este <select> em um campo de busca -->
         <select id="municipio-select" name="municipio" 
                 class="block w-full" 
@@ -326,13 +411,12 @@ body {
                 
                 <div class="md:w-1/2 rounded-lg overflow-hidden shadow-xl">
                     <img alt="Equipe de atendimento ao cliente" class="w-full h-auto object-cover"
-                         src="./img/1 - Pinhais-PR.jpg" />
+                         src="./img/Encontre um Representante.jpg" />
                 </div>
 
             </div>
         </div>
     </section>
-    <a name="contact"></a>
     <footer class="footer-bg py-12">
         <div class="container mx-auto px-4 sm:px-0 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -383,7 +467,7 @@ body {
            transition duration-300 ease-in-out transform hover:scale-110" style="background-color: #25D366;"
         aria-label="Fale conosco pelo WhatsApp">
 
-        <i class="fa fa-whatsapp text-white text-3xl"></i>
+        <i class="fa-brands fa-whatsapp text-white text-3xl"></i>
 
     </a>
 
